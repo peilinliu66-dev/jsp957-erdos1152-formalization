@@ -1,0 +1,218 @@
+✔ [2886/2952] Built Erdos1152.Interpolation (2.0s)
+✔ [2887/2952] Built Erdos1152.SignCount (2.8s)
+✔ [2888/2952] Built Erdos1152.Nodes (2.9s)
+✔ [2889/2952] Built Erdos1152.ExternalField (3.3s)
+✔ [2890/2952] Built Erdos1152.SeparatedSamples (3.6s)
+✔ [2891/2952] Built Erdos1152.Vitali (3.9s)
+✔ [2892/2952] Built Erdos1152.Intervals (2.0s)
+✔ [2893/2952] Built Erdos1152.RemezAmplification (4.1s)
+✔ [2894/2952] Built Erdos1152.FiniteObstruction (3.2s)
+✔ [2895/2952] Built Erdos1152.CauchyIntegral (4.1s)
+✔ [2896/2952] Built Erdos1152.Partition (4.9s)
+✔ [2897/2952] Built Erdos1152.FiniteData (5.1s)
+✔ [2898/2952] Built Erdos1152.FiniteLagrangeBounds (4.4s)
+✔ [2899/2952] Built Erdos1152.Boundary (3.2s)
+✔ [2900/2952] Built Erdos1152.Density (3.4s)
+✔ [2901/2952] Built Erdos1152.CauchyComparison (3.5s)
+✔ [2902/2952] Built Erdos1152.Contraction (3.4s)
+⚠ [2903/2952] Built Erdos1152.CoarseRemez (2.9s)
+warning: Erdos1152/CoarseRemez.lean:68:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2904/2952] Built Erdos1152.Stage (2.6s)
+✔ [2905/2952] Built Erdos1152.EquilibriumDensity (4.4s)
+✔ [2906/2952] Built Erdos1152.Baire (2.8s)
+✔ [2907/2952] Built Erdos1152.CoarseAmplification (3.1s)
+✔ [2908/2952] Built Erdos1152.LocalData (2.6s)
+✔ [2909/2952] Built Erdos1152.Batches (2.6s)
+✔ [2910/2952] Built Erdos1152.LocalRegions (2.6s)
+✔ [2911/2952] Built Erdos1152.FiniteConstruction (2.7s)
+✔ [2912/2952] Built Erdos1152.LocalToInterval (2.0s)
+✔ [2913/2952] Built Erdos1152.V3.AlternatingMeasure (3.3s)
+✔ [2914/2952] Built Erdos1152.CardinalLocal (3.2s)
+✔ [2915/2952] Built Erdos1152.Main (2.4s)
+✔ [2916/2952] Built Erdos1152.V3.LogKernel (2.8s)
+✔ [2917/2952] Built Erdos1152.DensityMass (11s)
+✔ [2918/2952] Built Erdos1152.CoarseCardinalLocal (2.9s)
+✔ [2919/2952] Built Erdos1152 (2.2s)
+✔ [2921/2952] Built Erdos1152.CoarseMain (2.4s)
+✔ [2922/2952] Built Erdos1152.V3.WeakKernel (3.1s)
+✔ [2923/2952] Built Erdos1152.V3.AnalyticCardinal (3.3s)
+✔ [2924/2952] Built JSP957V3 (2.3s)
+✔ [2926/2952] Built Erdos1152.V4.PotentialL1 (3.8s)
+✔ [2927/2952] Built Erdos1152.V4.FinitePotential (2.0s)
+✔ [2928/2952] Built Erdos1152.V4.SourceCount (2.9s)
+✔ [2929/2952] Built Erdos1152.V4.HighRegion (2.9s)
+✔ [2930/2952] Built Erdos1152.V4.Main (2.5s)
+⚠ [2931/2952] Built Erdos1152.V4.PotentialLevel (3.5s)
+warning: Erdos1152/V4/PotentialLevel.lean:143:6: Try `simp at hq` instead of `simpa using hq`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Erdos1152/V4/PotentialLevel.lean:220:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [2932/2952] Built JSP957V4High (2.5s)
+⚠ [2934/2952] Built Erdos1152.V4.MinimumPrinciple (5.5s)
+warning: Erdos1152/V4/MinimumPrinciple.lean:181:5: Variable name `hab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2935/2952] Built Erdos1152.V4.RegularizedPotential (3.6s)
+warning: Erdos1152/V4/RegularizedPotential.lean:43:39: Variable name `μ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _μ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V4/RegularizedPotential.lean:70:46: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V4/RegularizedPotential.lean:138:13: This simp argument is unused:
+  Function.comp_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.reCLM_apply, Complex.log_re]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V4/RegularizedPotential.lean:168:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [2936/2952] Built Erdos1152.V4.FiniteExternalField (3.7s)
+warning: Erdos1152/V4/FiniteExternalField.lean:140:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [2937/2952] Built Erdos1152.V4.FiniteFieldJet (2.4s)
+⚠ [2938/2952] Built Erdos1152.V4.DiskHarnack (3.6s)
+warning: Erdos1152/V4/DiskHarnack.lean:43:10: `HarmonicOnNhd.circleAverage_eq` has been deprecated: Use `InnerProductSpace.HarmonicOnNhd.circleAverage_eq` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.circleAverage_eq` to `InnerProductSpace.HarmonicOnNhd.circleAverage_eq x`).
+⚠ [2939/2952] Built Erdos1152.V4.BoundaryKernel (3.9s)
+warning: Erdos1152/V4/BoundaryKernel.lean:84:25: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V4/BoundaryKernel.lean:84:25: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V4/BoundaryKernel.lean:129:75: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V4/BoundaryKernel.lean:107:67: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V4/BoundaryKernel.lean:129:75: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [2940/2952] Built Erdos1152.V4.VerticalBoundary (4.3s)
+warning: Erdos1152/V4/VerticalBoundary.lean:59:27: This simp argument is unused:
+  verticalLog
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pi.pow_apply, id_eq, pow_one, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V4/VerticalBoundary.lean:59:61: This simp argument is unused:
+  pow_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [verticalLog, Pi.pow_apply, id_eq, mul_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V4/VerticalBoundary.lean:59:12: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V4/VerticalBoundary.lean:59:79: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2941/2952] Built Erdos1152.V4.PositiveDensity (3.4s)
+warning: Erdos1152/V4/PositiveDensity.lean:47:4: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+✔ [2942/2952] Built Erdos1152.V4.AtomFree (2.0s)
+⚠ [2943/2952] Built Erdos1152.V4.RestrictedKernel (4.3s)
+warning: Erdos1152/V4/RestrictedKernel.lean:207:49: This simp argument is unused:
+  r
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rampGap, integral_indicator (measurableSet_sourceInterval a b), setIntegral_const, smul_eq_mul,
+    mul_one, E]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V4/RestrictedKernel.lean:207:52: This simp argument is unused:
+  E
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [rampGap, integral_indicator (measurableSet_sourceInterval a b), setIntegral_const, smul_eq_mul,
+    mul_one, r]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2944/2952] Built Erdos1152.V4.DeletedKernel (4.7s)
+warning: Erdos1152/V4/DeletedKernel.lean:193:31: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V4/DeletedKernel.lean:193:31: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+⚠ [2945/2952] Built Erdos1152.V4.ExternalFieldLimit (4.4s)
+warning: Erdos1152/V4/ExternalFieldLimit.lean:53:32: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V4/ExternalFieldLimit.lean:90:24: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V4/ExternalFieldLimit.lean:88:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V4/ExternalFieldLimit.lean:90:24: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V4/ExternalFieldLimit.lean:117:21: This simp argument is unused:
+  ← Finset.sum_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [insideNodes]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2946/2952] Built Erdos1152.V4.LimitFieldRegularity (3.9s)
+warning: Erdos1152/V4/LimitFieldRegularity.lean:18:18: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V4/LimitFieldRegularity.lean:41:70: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V4/LimitFieldRegularity.lean:50:81: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2947/2952] Built Erdos1152.V4.LocalMass (4.5s)
+info: Erdos1152/V4/LocalMass.lean:94:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+info: Erdos1152/V4/LocalMass.lean:157:17: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Erdos1152/V4/LocalMass.lean:157:13: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V4/LocalMass.lean:228:21: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V4/LocalMass.lean:228:21: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+✔ [2948/2952] Built Erdos1152.V4.TangentMeasure (3.8s)
+✔ [2949/2952] Built Erdos1152.V4.ExternalTail (5.1s)
+✔ [2950/2952] Built Erdos1152.V4.UniformLocalPotential (2.7s)
+✔ [2951/2952] Built JSP957V4 (2.4s)
+Build completed successfully (2952 jobs).

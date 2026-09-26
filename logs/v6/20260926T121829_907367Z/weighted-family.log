@@ -1,0 +1,411 @@
+⚠ [2784/2842] Replayed Erdos1152.CoarseRemez
+warning: Erdos1152/CoarseRemez.lean:68:4: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2789/2842] Replayed Erdos1152.V4.PotentialLevel
+warning: Erdos1152/V4/PotentialLevel.lean:143:6: Try `simp at hq` instead of `simpa using hq`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Erdos1152/V4/PotentialLevel.lean:220:17: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [2790/2842] Replayed Erdos1152.V4.MinimumPrinciple
+warning: Erdos1152/V4/MinimumPrinciple.lean:181:5: Variable name `hab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2791/2842] Replayed Erdos1152.V4.FiniteExternalField
+warning: Erdos1152/V4/FiniteExternalField.lean:140:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2881/2989] Replayed Erdos1152.V5.SineContour
+info: Erdos1152/V5/SineContour.lean:76:18: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Erdos1152/V5/SineContour.lean:76:14: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V5/SineContour.lean:151:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V5/SineContour.lean:173:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2882/2989] Replayed Erdos1152.V5.SamplingDecay
+warning: Erdos1152/V5/SamplingDecay.lean:120:54: Variable name `hD` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hD
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2883/2989] Replayed Erdos1152.V5.SamplingContours
+warning: Erdos1152/V5/SamplingContours.lean:60:19: This simp argument is unused:
+  abs_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [abs_of_pos ht]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/SamplingContours.lean:181:77: Unused tactic linter: `positivity` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/SamplingContours.lean:181:77: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V5/SamplingContours.lean:178:36: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V5/SamplingContours.lean:219:75: Unused tactic linter: `positivity` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/SamplingContours.lean:219:75: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V5/SamplingContours.lean:216:36: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2885/2989] Replayed Erdos1152.V5.FinitePoles
+warning: Erdos1152/V5/FinitePoles.lean:31:6: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/FinitePoles.lean:31:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+⚠ [2886/2989] Replayed Erdos1152.V5.EntireSinc
+warning: Erdos1152/V5/EntireSinc.lean:78:14: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.mul_im, Complex.ofReal_re, Complex.ofReal_im, mul_zero, zero_add, abs_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2887/2989] Replayed Erdos1152.V5.SamplingFormula
+warning: Erdos1152/V5/SamplingFormula.lean:81:36: This simp argument is unused:
+  zero_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.sin_int_mul_pi, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/SamplingFormula.lean:81:45: This simp argument is unused:
+  add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.sin_int_mul_pi, zero_mul]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/SamplingFormula.lean:180:30: This simp argument is unused:
+  mul_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sub_sub_cancel, sub_zero] at hsumlim
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [2888/2989] Replayed Erdos1152.V5.FiniteSampling
+warning: Erdos1152/V5/FiniteSampling.lean:59:62: This simp argument is unused:
+  ite_add_ite
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [correctedSample, mul_add, Finset.sum_add_distrib]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/FiniteSampling.lean:147:42: Variable name `hreal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hreal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V5/FiniteSampling.lean:178:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V5/FiniteSampling.lean:283:42: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/FiniteSampling.lean:291:6: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/FiniteSampling.lean:283:42: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V5/FiniteSampling.lean:291:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V5/FiniteSampling.lean:283:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [2890/2989] Replayed Erdos1152.V5.SamplingPacket
+warning: Erdos1152/V5/SamplingPacket.lean:11:44: Variable name `ht₁` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht₁
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3527/3557] Replayed Erdos1152.V5.FiniteFourier
+warning: Erdos1152/V5/FiniteFourier.lean:27:19: This simp argument is unused:
+  fourier_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [character]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/FiniteFourier.lean:85:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Erdos1152/V5/FiniteFourier.lean:134:10: This simp argument is unused:
+  sum_ite_irrel
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sum_filter]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/FiniteFourier.lean:134:25: This simp argument is unused:
+  sum_filter
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sum_ite_irrel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/FiniteFourier.lean:177:32: This simp argument is unused:
+  Module.finrank_self
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Module.finrank_pi, mul_one] at hf
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/FiniteFourier.lean:177:53: This simp argument is unused:
+  mul_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Module.finrank_pi, Module.finrank_self] at hf
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3528/3557] Replayed Erdos1152.V5.FejerGrid
+warning: Erdos1152/V5/FejerGrid.lean:41:10: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/FejerGrid.lean:41:10: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V5/FejerGrid.lean:164:22: This simp argument is unused:
+  Complex.norm_natCast
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [NeZero.ne L]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3531/3557] Replayed Erdos1152.V5.SinePolynomial
+warning: Erdos1152/V5/SinePolynomial.lean:30:5: Variable name `hC` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hC
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+info: Erdos1152/V5/SinePolynomial.lean:65:30: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Erdos1152/V5/SinePolynomial.lean:65:18: Unused tactic linter: `congr 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/SinePolynomial.lean:65:26: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Erdos1152/V5/SinePolynomial.lean:78:42: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/SinePolynomial.lean:78:42: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Erdos1152/V5/SinePolynomial.lean:78:23: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3532/3557] Replayed Erdos1152.V5.PrivalovProbe
+info: Erdos1152/V5/PrivalovProbe.lean:62:2: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Erdos1152/V5/PrivalovProbe.lean:128:35: This simp argument is unused:
+  mul_smul_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/PrivalovProbe.lean:138:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3533/3557] Replayed Erdos1152.V5.Privalov
+warning: Erdos1152/V5/Privalov.lean:93:50: This simp argument is unused:
+  mul_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [translateCircle, cosineCharacter, sum_mul, add_mul, mul_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/Privalov.lean:170:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3534/3557] Replayed Erdos1152.V5.CircleInterpolation
+info: Erdos1152/V5/CircleInterpolation.lean:48:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Erdos1152/V5/CircleInterpolation.lean:138:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3536/3557] Replayed Erdos1152.V5.NormalizeTrig
+warning: Erdos1152/V5/NormalizeTrig.lean:71:12: This simp argument is unused:
+  norm_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [c, Complex.norm_real, Real.norm_eq_abs, abs_of_pos hM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3537/3557] Replayed Erdos1152.V5.TrigExtension
+warning: Erdos1152/V5/TrigExtension.lean:107:8: This simp argument is unused:
+  Complex.norm_real
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.ofReal_im, mul_zero, Real.exp_zero, mul_one, Complex.norm_I, Real.norm_eq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Erdos1152/V5/TrigExtension.lean:107:26: This simp argument is unused:
+  Real.norm_eq_abs
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Complex.ofReal_im, mul_zero, Real.exp_zero, mul_one, Complex.norm_I, Complex.norm_real]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3538/3557] Replayed Erdos1152.V5.LocalBernstein
+warning: Erdos1152/V5/LocalBernstein.lean:119:4: Unused tactic linter: `congr 1` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Erdos1152/V5/LocalBernstein.lean:202:34: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3539/3557] Replayed Erdos1152.V5.SixthWindow
+info: Erdos1152/V5/SixthWindow.lean:42:37: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Erdos1152/V5/SixthWindow.lean:42:33: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3540/3557] Built Erdos1152.V5.LocalCoordinates (2.6s)
+⚠ [3541/3557] Built Erdos1152.V5.CrossTails (3.2s)
+warning: Erdos1152/V5/CrossTails.lean:89:28: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V5/CrossTails.lean:122:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Erdos1152/V5/CrossTails.lean:132:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [3542/3557] Built Erdos1152.TiltedEnvelope (3.6s)
+✔ [3543/3557] Built Erdos1152.GammaIncrementBounds (3.6s)
+✔ [3544/3557] Built Erdos1152.V5.TaylorSupport (5.4s)
+✔ [3545/3557] Built Erdos1152.V5.GoodBoxes (8.0s)
+⚠ [3546/3557] Built Erdos1152.V5.GammaAmplitude (9.3s)
+warning: Erdos1152/V5/GammaAmplitude.lean:215:43: Variable name `hb0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3547/3557] Built Erdos1152.V5.SelectedCenters (4.5s)
+warning: Erdos1152/V5/SelectedCenters.lean:62:59: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3548/3557] Built Erdos1152.V5.AssemblePeaks (13s)
+warning: Erdos1152/V5/AssemblePeaks.lean:53:45: Variable name `hℓ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hℓ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3549/3557] Built Erdos1152.V5.MeshKernel (6.8s)
+info: Erdos1152/V5/MeshKernel.lean:141:4: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3550/3557] Built Erdos1152.V5.WeightedEnvelope (23s)
+warning: Erdos1152/V5/WeightedEnvelope.lean:21:37: Variable name `hδ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hδ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V5/WeightedEnvelope.lean:102:27: Variable name `hm` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hm
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V5/WeightedEnvelope.lean:198:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3551/3557] Built Erdos1152.V5.TiltBudget (7.1s)
+⚠ [3552/3557] Built Erdos1152.V5.WeightedPolynomial (3.9s)
+warning: Erdos1152/V5/WeightedPolynomial.lean:157:41: Variable name `hK` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hK
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Erdos1152/V5/WeightedPolynomial.lean:157:52: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3553/3557] Built Erdos1152.V5.UniformPacketControl (11s)
+warning: Erdos1152/V5/UniformPacketControl.lean:63:5: Variable name `hρ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hρ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3554/3557] Built Erdos1152.V5.LocalWeightedPeak (20s)
+✔ [3555/3557] Built Erdos1152.V5.WeightedFamily (5.3s)
+✔ [3556/3557] Built JSP957V5Weighted (2.6s)
+Build completed successfully (3557 jobs).

@@ -1,0 +1,1329 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={Almost everywhere divergence of polynomial interpolation with sublinear excess degree}
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\numberwithin{equation}{section}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\arctanh}{arctanh}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+
+\title{Almost everywhere divergence of polynomial interpolation\\
+with sublinear excess degree}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let \(X_n\) be an arbitrary set of \(n\) distinct points in \([-1,1]\),
+and let \(r_n\) be nonnegative integers with \(r_n=o(n)\).
+We prove that there is a real continuous function \(f\) such that every
+sequence of polynomials \(p_n\), of degree at most \(n+r_n\), satisfying
+\(p_n=f\) on \(X_n\), has
+\(\limsup_{n\to\infty}|p_n(x)|=\infty\) for almost every \(x\in[-1,1]\).
+The exceptional null set may depend on the sequence \((p_n)\).
+This extends the Erd\H{o}s--V\'ertesi theorem on almost-everywhere
+unboundedness of Lagrange interpolation for arbitrary node arrays to
+nonunique interpolation with \(o(n)\) excess degree, and in particular
+answers Erd\H{o}s Problem 1152 in a stronger form. The proof combines
+localized functions in Bernstein spaces with uniform asymptotics for
+weighted Christoffel--Darboux kernels. A finite interpolation construction
+and the Baire category theorem give a single function valid for every
+admissible interpolation sequence.
+\end{abstract}
+
+\section{Introduction}
+
+Write \(\Pi_d\) for the space of real polynomials of degree at most \(d\).
+All measures of subsets of \([-1,1]\) below are Lebesgue measures.
+The uniform norm on this interval is denoted by \(\norm{\cdot}_\infty\).
+
+\begin{theorem}\label{thm:main}
+For each \(n\ge1\), let \(X_n\subset[-1,1]\) consist of \(n\) distinct
+points. Suppose that \(r_n\ge0\) are integers and \(r_n/n\to0\).
+There exists \(f\in C([-1,1];\R)\) such that every sequence satisfying
+\[
+ p_n\in\Pi_{n+r_n},
+ \qquad p_n(x)=f(x)\quad(x\in X_n)
+\]
+also satisfies
+\begin{equation}\label{eq:divergence}
+ \limsup_{n\to\infty}|p_n(x)|=\infty
+ \quad\text{for almost every }x\in[-1,1].
+\end{equation}
+\end{theorem}
+
+Erd\H{o}s and V\'ertesi proved that for every triangular array of
+distinct nodes in \([-1,1]\), there is a continuous function whose
+Lagrange interpolation polynomials are unbounded almost everywhere
+\cite{EV80,EV81}. Theorem~\ref{thm:main} extends this arbitrary-node
+result to nonunique interpolation: degrees up to \(n+r_n\), with
+\(r_n=o(n)\), are allowed, and the same continuous function works for
+every admissible sequence of interpolants. This also answers the question
+in \cite[Problem~2.42]{Favorite99}, recorded as Erd\H{o}s Problem 1152
+\cite{Erdos1152}, in the stronger form \eqref{eq:divergence}.
+Indeed, for the degree condition \(\deg p_n<(1+\varepsilon_n)n\),
+set \(r_n=\max\{0,\lceil\varepsilon_n n\rceil-1\}\); then
+\(r_n=o(n)\) and \(\deg p_n\le n+r_n\).
+
+The contrast with fixed positive relative excess is provided by Erd\H{o}s,
+Kro\'o, and Szabados \cite{EKS89}: for suitable node arrays and each fixed
+\(\varepsilon>0\), every continuous function admits uniformly convergent
+interpolants of degree at most \(\lfloor(1+\varepsilon)n\rfloor\).
+For background on divergence phenomena in Lagrange interpolation, see
+Szabados and V\'ertesi \cite{SV90}.
+
+The two analytic ingredients are the construction in
+Olevskii and Ulanovskii \cite[Lemma 4.1]{OU} and the uniform kernel
+asymptotics of Kriecherbauer, Schubert, Sch\"uler, and Venker
+\cite[Theorem 1.3 and Theorem 1.8 (bulk universality)]{KSSV}.
+Section~\ref{sec:kernel} records the kernel estimates in the normalization
+used below, while Section~\ref{sec:arbitrary} derives the corresponding
+local external field from a weak limit of the node measures.
+We first obtain interpolation data that force large values on a fixed
+fraction of a local interval, uniformly over all admissible polynomial
+corrections. We then combine finitely many such data sets to rule out
+common sets of bounded values. The final step is a category argument
+in \(C([-1,1];\R)\).
+
+\section{Localized Bernstein functions and polynomial corrections}
+\label{sec:bernstein}
+
+For \(\sigma>0\), let \(B_\sigma\) denote the space of entire functions
+of exponential type at most \(\sigma\) that are bounded on \(\R\).
+Norms of functions in \(B_\sigma\) are taken on \(\R\).
+
+\begin{lemma}\label{lem:bernstein}
+There are absolute constants \(c,C>0\) with the following property.
+For every sufficiently large integer \(\rho\), put
+\[
+ R_0=\rho-\sqrt{\rho},
+ \qquad \gamma=R_0^{-1/9}.
+\]
+For every finite set \(\Gamma\subset[-\rho,\rho)\) with
+\(\#\Gamma\le2\rho+1\), there is an entire function \(g\), real on
+\(\R\), such that
+\begin{align}
+ &g\in B_{\pi-4\gamma},
+ \qquad \max_{\Gamma}|g|\le1,
+ \qquad \norm{g}_\infty\le C\log\rho, \label{eq:bernstein-norm}\\
+ &g(u_0)\ge c\log\rho
+ \quad\text{for some }|u_0|\le R_0, \label{eq:bernstein-peak}\\
+ &|g(u)|\le C(|u|-R_0)^{-3}
+ \quad (|u|\ge\rho). \label{eq:bernstein-tail}
+\end{align}
+For each fixed \(\rho\), these choices \(g=g_\Gamma\) satisfy
+\[
+ \sup_\Gamma\norm{g_\Gamma}_{L^1(\R)}\le C_\rho,
+ \qquad
+ \sup_\Gamma\int_{|u|>T}|g_\Gamma(u)|\,du
+ \le\frac{C}{(T-R_0)^2}\quad(T\ge\rho),
+\]
+where the suprema range over the finite sets \(\Gamma\) specified above.
+There is also an interval, of length bounded below by an absolute
+positive constant, contained in \((-\rho,\rho)\setminus\Gamma\), on
+which \(g\ge c'\log\rho\), with an absolute constant \(c'>0\).
+\end{lemma}
+
+\begin{proof}
+Adapt the construction of \cite[Lemma~4.1, pp.~184--185]{OU} by reducing
+its initial bandwidth from \(\pi-4R_0^{-1/9}\) to
+\(\pi-8R_0^{-1/9}\). The fourth-power sinc factor below then leaves
+the required margin \(4\gamma\) below \(\pi\).
+Put \(w=\pi-8\gamma\) and
+\[
+ \Lambda=\Gamma+2R_0\Z.
+\]
+Since \(\Gamma\) is finite, \(\Lambda\) is uniformly discrete. Being
+periodic, its lower and upper uniform densities coincide; write their
+common value as \(D\). Then
+\[
+ D\le\frac{2\rho+1}{2R_0}\le1+CR_0^{-1/2}.
+\]
+Write \(K_s(\Lambda,B_w)\) for the sampling constant. If \(\Lambda\)
+is a sampling set for \(B_w\), then \cite[Theorem~C(i), p.~179]{OU} gives
+\(D>w/\pi\). Hence \(D\Lambda\) has density one and
+\cite[Theorem~1(i), p.~180]{OU} gives
+\[
+ K_s(\Lambda,B_w)
+ =K_s(D\Lambda,B_{w/D})
+ \ge C\log\frac{\pi}{\pi-w/D}
+ \ge c\log R_0,
+\]
+since, for large \(\rho\),
+\[
+ 0<\pi-\frac wD=\frac{\pi D-w}{D}
+ \le C\bigl(R_0^{-1/2}+\gamma\bigr)\le C\gamma.
+\]
+If \(\Lambda\) is not a sampling set,
+its sampling constant is infinite, so the same lower bound is immediate.
+Thus one can choose \(g_1\in B_w\), bounded by one on \(\Lambda\),
+whose norm is a fixed constant times \(\log R_0\).
+Choose a point at which its absolute value is at least half this norm.
+A translation by a multiple of \(2R_0\) places this point at
+\(u_0\in[-R_0,R_0]\), without changing the bound on \(\Lambda\).
+Multiply by a constant of modulus one so that \(g_1(u_0)>0\), then
+replace \(g_1(z)\) by
+\((g_1(z)+\overline{g_1(\bar z)})/2\). This entire function is real on
+\(\R\), retains the value at \(u_0\), and satisfies the same bandwidth
+and upper bounds.
+
+Multiply this function by
+\[
+ \left(\frac{\sin(\gamma(u-u_0))}
+ {\gamma(u-u_0)}\right)^4.
+\]
+The resulting function has bandwidth at most \(\pi-4\gamma\) and
+retains the node bound and the value at \(u_0\).
+For \(|u|\ge\rho\), the bound
+\[
+ C\log R_0\,\gamma^{-4}(|u|-R_0)^{-4}
+ \le C(|u|-R_0)^{-3}
+\]
+follows from
+\(\log R_0\,R_0^{4/9}/\sqrt{\rho}=O(1)\).
+This proves \eqref{eq:bernstein-norm}--\eqref{eq:bernstein-tail}
+and the assertions about integrability.
+Finally, Bernstein's inequality gives
+\(\norm{g'}_\infty\le\pi C\log\rho\).
+Thus the peak contains an interval of fixed positive length on which
+\(g\ge c'\log\rho>1\). This interval contains no point of \(\Gamma\)
+and lies inside the original box.
+\end{proof}
+
+For a finite set \(Y\subset\R\), define
+\[
+ P_Y(x)=\prod_{y\in Y}(x-y).
+\]
+
+\begin{lemma}[Alternating peaks]\label{lem:signs}
+Let \(Y\) consist of \(N\ge1\) distinct real points, let \(H>0\),
+and let \(d\ge0\) be an integer. Suppose that disjoint intervals
+\(J_1,\ldots,J_K\), in increasing order and missing \(Y\), and
+polynomials \(B_1,\ldots,B_K\in\Pi_{N-1}\) satisfy
+\[
+ \max_{y\in Y}\sum_j|B_j(y)|\le2,
+ \qquad
+ B_j(x)>2H+\sum_{i\ne j}|B_i(x)|\quad(x\in J_j).
+\]
+There are data \(v_y\in[-1,1]\) on \(Y\) such that every
+\(p\in\Pi_{N+d}\) interpolating these data satisfies \(|p|>H\)
+throughout at least \((K-d-1)/2\) of the intervals \(J_j\).
+\end{lemma}
+
+\begin{proof}
+Choose signs \(\varepsilon_j\) so that
+\(\sgn(\varepsilon_j/P_Y)|_{J_j}=(-1)^j\), and put
+\(b=\frac12\sum_j\varepsilon_jB_j\).
+Then \(|b|\le1\) on \(Y\), while peak dominance gives
+\begin{equation}\label{eq:alternating-data}
+ |b|>H,
+ \qquad
+ \sgn(b/P_Y)|_{J_j}=(-1)^j.
+\end{equation}
+Set \(v_y=b(y)\). Any interpolant in \(\Pi_{N+d}\) has the form
+\(p=b+P_Yq\) with \(\deg q\le d\).
+Call \(J_j\) a low interval if it contains a point \(x_j\) with
+\(|p(x_j)|\le H\). At such a point the sign of \(q(x_j)\) is opposite
+to that of \(b(x_j)/P_Y(x_j)\).
+If there are \(B\) low intervals, the resulting signs alternate at
+least \(2B-K-1\) times. Indeed, deleting \(K-B\) terms from a fully
+alternating sequence removes at most \(2(K-B)\) sign changes.
+Consequently \(2B-K-1\le d\), so
+\begin{equation}\label{eq:low-interval-count}
+ B\le\frac{K+d+1}{2}.
+\end{equation}
+The asserted bound follows.
+\end{proof}
+
+\section{An explicit external field and its polynomial kernel}
+\label{sec:kernel}
+
+For a finite positive measure \(\mu\), use the logarithmic-potential
+convention
+\[
+ V_\mu(x)=\int\log|x-y|\,d\mu(y).
+\]
+Define
+\begin{equation}\label{eq:field}
+ Q(u)=\frac12\bigl((1+u)\log(1+u)+(1-u)\log(1-u)\bigr),
+ \qquad |u|<1.
+\end{equation}
+Then \(Q(0)=0\), \(Q'(u)=\arctanh u\), and
+\(Q''(u)=(1-u^2)^{-1}\).
+
+\begin{lemma}\label{lem:equilibrium}
+For \(0<t<1\), set \(a_t=\sqrt{1-(1-t)^2}\).
+The equilibrium measure of mass \(t\) in the external field \(Q\)
+on \([-1,1]\) has density
+\begin{equation}\label{eq:density}
+ \rho_t(u)=\frac1\pi
+ \arccos\frac{1-t}{\sqrt{1-u^2}}\,
+ \one_{\{|u|<a_t\}}.
+\end{equation}
+Thus \(Q-V_{\rho_t}\) is constant on \([-a_t,a_t]\) and is no smaller
+elsewhere in \([-1,1]\).
+\end{lemma}
+
+\begin{proof}
+Differentiation with respect to \(t\), away from \(|u|=a_t\), gives
+\begin{equation}\label{eq:density-derivative}
+ \partial_t\rho_t(u)=
+ \frac{\one_{\{|u|<a_t\}}}{\pi\sqrt{a_t^2-u^2}}.
+\end{equation}
+This is the arcsine probability density on \([-a_t,a_t]\), so
+\(\rho_t\) has total mass \(t\).
+Its Cauchy transform can be computed by integrating the transforms
+of these arcsine measures. For \(0<x<a_t\), its real boundary value is
+\begin{equation}\label{eq:cauchy}
+ \int_0^{1-\sqrt{1-x^2}}\frac{ds}{\sqrt{x^2-a_s^2}}
+ =\arctanh x=Q'(x).
+\end{equation}
+One may justify the calculation first in the upper half-plane by
+Fubini's theorem and then take boundary values.
+For \(a_t<x<1\), the upper limit in \eqref{eq:cauchy} is \(t\),
+and the integral is strictly smaller than \(Q'(x)\).
+Symmetry gives the corresponding statements on the negative
+half-axis. These identities prove the equilibrium equalities and
+inequalities.
+\end{proof}
+
+Put \(A=[-1/4,1/4]\). We will use the following consequences of
+\cite{KSSV}.
+
+\begin{lemma}[Uniform weighted kernel estimates]\label{lem:kssv-kernel}
+Fix \(0<t<1\) sufficiently close to one that \(A\Subset(-a_t,a_t)\),
+and choose \(a_t<b<1\). There are intervals
+\[
+ A\Subset J_0\Subset J_1\Subset(-b,b)
+\]
+and a bounded complex neighborhood \(\Omega\) of \([-b,b]\), with
+\(\overline\Omega\subset\{z:|\operatorname{Re}z|<1\}\), and
+\(\delta>0\) with the following property.
+Let \(\mathcal U\) consist of the bounded holomorphic functions \(F\)
+on \(\Omega\), real on \(\Omega\cap\R\), for which
+\(\norm{F-Q}_\Omega<\delta\), where
+\(\norm{F}_\Omega=\sup_{z\in\Omega}|F(z)|\).
+Let \(s\to\infty\), \(m=\lfloor ts\rfloor\), and let \(Q_s\) belong
+to \(\mathcal U\). If \(p_0,\ldots,p_{m-1}\) are orthonormal for
+\(e^{-2sQ_s(x)}\,dx\) on \([-b,b]\), set
+\begin{equation}\label{eq:kernel}
+ K_s(x,z)=e^{-sQ_s(x)-sQ_s(z)}
+ \sum_{j=0}^{m-1}p_j(x)p_j(z),
+ \qquad c_s=\frac{s}{2}.
+\end{equation}
+Let \(\beta_{s,y}\) be twice the density at \(y\) of the equilibrium
+measure of mass \(m/s\) for \(Q_s\). Then, uniformly for the indicated
+family of external fields,
+\begin{align}
+ \frac{K_s(y+u/c_s,y+v/c_s)}{c_s}
+ &=\frac{\sin\bigl(\pi\beta_{s,y}(u-v)\bigr)}{\pi(u-v)}+o(1),
+ \label{eq:sine-limit}\\
+ \frac{|K_s(x,z)|}{c_s}
+ &\le \frac{C}{1+s|x-z|}
+ \qquad (x,z\in J_1), \label{eq:bulk-kernel}\\
+ \frac{|K_s(x,z)|}{c_s}
+ &\le Cs^{-5/6}
+ \qquad\bigl(x\in[-b,b]\setminus J_0,\
+ z\in A+O(s^{-1})\bigr). \label{eq:edge-kernel}
+\end{align}
+In \eqref{eq:sine-limit}, \(y\in A\), \(u,v\) range over bounded
+sets, and the quotient at \(u=v\) is interpreted by continuity.
+\end{lemma}
+
+\begin{proof}
+In the notation of \cite{KSSV}, take
+\[
+ N=m,\qquad J=[-b,b],\qquad V=V_s:=\frac{2s}{m}Q_s.
+\]
+Then \(e^{-mV_s}=e^{-2sQ_s}\), and their kernel \(K_{N,V}\) is
+exactly \(K_s\). The base field \(V_0=2Q/t\) satisfies their
+assumptions (GA)\(_2\): it is analytic near the compact interval
+\(J\), has \(V_0''\ge2/t>0\), and its equilibrium probability
+measure is \(\rho_t/t\), supported on \([-a_t,a_t]\Subset J\).
+
+Choose \(\Omega\) as in \cite[Remark~1.1]{KSSV} and a fixed
+sup-norm neighborhood of \(V_0\) supplied by their Theorem~1.3(b).
+Since \(m/s\to t\), decreasing \(\delta\) and then taking \(s\)
+large ensures that every \(V_s\) lies in this same neighborhood.
+By their Lemma~2.4 the support endpoints depend continuously on
+\(V\). Thus \(J_0,J_1\) can be chosen inside every support, with
+fixed positive distances between \(A\), their boundaries, the
+support endpoints, and \(\pm b\). Cauchy's estimates also preserve
+a positive lower bound for \(V_s''\). In particular, the density
+factor \(G_V\) in their (1.14)--(1.15) stays positive and bounded
+on the corresponding rescaled intervals.
+
+Let \(\psi_s\) be the equilibrium probability density for \(V_s\).
+Their affine map \(\lambda_{V_s}\) takes \([-1,1]\) onto the
+equilibrium support, and their rescaled density satisfies
+\[
+ \rho_{V_s}(\xi)=\lambda_{V_s}'\,
+                  \psi_s(\lambda_{V_s}(\xi)).
+\]
+Then \(\rho_s=(m/s)\psi_s\) is the equilibrium density of mass \(m/s\)
+for \(Q_s\), and
+\[
+ m\psi_s(y)=s\rho_s(y)=c_s\beta_{s,y}.
+\]
+In \cite[Theorem~1.8]{KSSV}, take the base point
+\(\lambda_{V_s}^{-1}(y)\) and microscopic variables
+\(\beta_{s,y}u\), \(\beta_{s,y}v\).
+The preceding identities give \eqref{eq:sine-limit}, with the
+uniform error in part (b) of that theorem.
+
+For \eqref{eq:bulk-kernel}, the bulk vector \(k\) in
+\cite[Theorem~1.3(a), (1.25)]{KSSV} is uniformly bounded.
+The difference quotient therefore gives \(O(|x-z|^{-1})\) when
+\(|x-z|\ge s^{-1}\). For \(|x-z|<s^{-1}\), the diagonal bound
+\(K_s(x,x)=O(s)\) from Theorem~1.8 and Cauchy--Schwarz give the
+required \(O(s)\) bound.
+For \eqref{eq:edge-kernel}, the endpoint components of the vector
+\(k\) in that theorem have the forms, up to bounded multipliers,
+\[
+ m^{1/6}\operatorname{Ai}(\zeta),\qquad
+ m^{-1/6}\operatorname{Ai}'(\zeta),\qquad |\zeta|=O(m^{2/3}).
+\]
+The real Airy bounds \(|\operatorname{Ai}(\zeta)|\le C\) and
+\(|\operatorname{Ai}'(\zeta)|\le C(1+|\zeta|)^{1/4}\) give
+\(\norm{k}=O(m^{1/6})\) there. The bulk and exterior formulas give
+bounded vectors away from the endpoints. At \(z\in A+O(s^{-1})\)
+the vector is bounded, while \(|x-z|\) is bounded below.
+Thus (1.25), including its \(O(m^{-1})\) remainder, gives
+\(|K_s(x,z)|=O(m^{1/6})\). Since \(m\asymp s\) and \(c_s=s/2\),
+this proves \eqref{eq:edge-kernel}.
+The neighborhood and error bounds are uniform by Theorem~1.3(b);
+Lemma~2.4 and the endpoint formulas keep the affine rescaling and
+the multipliers uniformly bounded after \(\mathcal U\) is fixed.
+\end{proof}
+
+
+\section{Local amplification with the external-node weight}
+\label{sec:weighted}
+
+Consider a sequence of finite node sets \(Y\subset[-1,1]\),
+with \(N=\#Y\), and fix
+\[
+ I=(x_0-h,x_0+h)\Subset(-1,1),
+ \qquad s=\#(Y\cap I).
+\]
+In the coordinate \(u=(x-x_0)/h\), define
+\begin{equation}\label{eq:actual-field}
+ W(u)=\prod_{y\in Y\setminus I}(x_0+hu-y),
+ \qquad
+ Q_s(u)=-\frac1s\log\left|\frac{W(u)}{W(0)}\right|.
+\end{equation}
+The function \(Q_s\) is convex on \((-1,1)\).
+
+\begin{proposition}\label{prop:weighted}
+For each \(H>1\), there are \(\epsilon_H,c_H,\delta_H>0\),
+\(b_H\in(0,1)\), and a bounded complex neighborhood \(\Omega_H\)
+of \([-b_H,b_H]\), with
+\(\overline\Omega_H\subset\{z:|\operatorname{Re}z|<1\}\),
+with the following property. Let \(\mathcal U_H\) be the ball
+\(\norm{F-Q}_{\Omega_H}<\delta_H\) of bounded holomorphic
+functions on \(\Omega_H\) that are real on \(\Omega_H\cap\R\).
+For any fixed interval \(I\) and sequence of node sets \(Y\) as
+above, suppose that \(s\to\infty\), that the normalized analytic
+continuation of \(Q_s\) belongs to \(\mathcal U_H\), and that
+\begin{equation}\label{eq:central-count}
+ \#\{y\in Y:(y-x_0)/h\in A\}
+ \le \frac{s}{4}+\epsilon_H s.
+\end{equation}
+If \(d\ge0\) are integers with \(d=o(s)\), then, for all sufficiently
+large \(s\), there are
+data \(v_y\in[-1,1]\), \(y\in Y\), such that every
+\(p\in\Pi_{N+d}\) interpolating these data satisfies
+\begin{equation}\label{eq:local-amplification}
+ |\{x\in I:|p(x)|>H\}|\ge c_H|I|.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We fix the auxiliary parameters in the following order, all before
+letting \(s\to\infty\). First choose \(\rho\) so large that
+\[
+ c'\log\rho>10H,
+\]
+where \(c'\) is the constant in Lemma~\ref{lem:bernstein}, and set
+\(\epsilon_H=1/(16\rho)\), \(R_0=\rho-\sqrt\rho\), and
+\(\gamma=R_0^{-1/9}\). Choose \(t<1\)
+so close to one that
+\[
+ \inf_{y\in A}2\pi\rho_t(y)>\pi-2\gamma.
+\]
+Fix \(K=3\), and then choose \(\kappa>0\) so small that
+\(t+\kappa<1\) and the Jackson factor \eqref{eq:jackson} below is
+larger than \(9/10\) whenever \(y\in A\) and
+\(|c_s(u-y)|\le\rho+1\), for all sufficiently large \(s\). Choose
+\(b\) with \(a_{t+\kappa}<b<1\), choose
+\(A\Subset J_0\Subset J_1\Subset(-b,b)\) inside the common bulk
+region, and shrink the analytic neighborhood of \(Q\) so that the
+kernel estimates of Section~\ref{sec:kernel} are uniform there, the
+supports of the equilibrium measures of masses near
+\([t,t+\kappa]\) stay a fixed positive distance from \(\pm b\), and
+\begin{equation}\label{eq:bandwidth-margin}
+ \inf_{y\in A}\pi\beta_{s,y}>\pi-3\gamma.
+\end{equation}
+These choices give \(b_H=b\), \(\Omega_H\), \(\delta_H\), and
+\(\mathcal U_H\) in the statement.
+Set \(\eta=1/10\). By the uniform integral-tail bound in
+Lemma~\ref{lem:bernstein}, choose \(T\) so that the truncation error
+in \eqref{eq:kernel-projection} is less than \(\eta/2\). Next choose
+\(R>\max\{\rho+1,2T\}\). Finally choose \(D>2R\) so that
+\begin{equation}\label{eq:tail-choice}
+ 2C_\rho\sum_{j=0}^{\infty}
+ \frac{1}{1+R+jD}\,
+ \frac{1}{(1+\kappa(R+jD))^{2K}}<\frac1{10}.
+\end{equation}
+Here \(C_\rho\) is the constant in \eqref{eq:weighted-tail}; first
+increasing \(R\) and then \(D\) makes \eqref{eq:tail-choice} hold.
+All these parameters depend only on \(H\).
+
+Partition the interval \(c_sA\) into boxes of length \(2\rho\),
+discarding incomplete boxes at the ends.
+There are \(s/(8\rho)-O(1)\) boxes.
+Call a box admissible if it contains at most \(2\rho+1\) scaled nodes.
+If \(B\) is the number of admissible boxes, then
+\[
+ \left(\frac{s}{8\rho}-O(1)-B\right)(2\rho+2)
+ \le \frac{s}{4}+\epsilon_H s.
+\]
+The choice of \(\epsilon_H\) implies \(B\ge c_\rho s\).
+
+For an admissible box centered at \(c_sy\), apply
+Lemma~\ref{lem:bernstein} to its translated nodes, obtaining \(g\).
+For a fixed truncation parameter \(T\), define
+\begin{equation}\label{eq:kernel-projection}
+ G_{s,y}(u)=\int_{-T}^{T}
+ g(v)\frac{K_s(u,y+v/c_s)}{c_s}\,dv.
+\end{equation}
+This is \(e^{-sQ_s(u)}\) times a polynomial of degree at most \(m-1\).
+By \eqref{eq:bandwidth-margin} and the Paley--Wiener theorem,
+\[
+ \int_{\R}g(v)
+ \frac{\sin\bigl(\pi\beta_{s,y}(\xi-v)\bigr)}{\pi(\xi-v)}\,dv=g(\xi).
+\]
+With \(\eta,T,R\) fixed above, Equation~\eqref{eq:sine-limit}
+implies, for all sufficiently large \(s\),
+\begin{equation}\label{eq:projection-approximation}
+ \sup_{|\xi|\le R}|G_{s,y}(y+\xi/c_s)-g(\xi)|<\eta.
+\end{equation}
+The uniform \(L^1\) bound makes this assertion uniform even when
+\(g\) varies with the node configuration.
+
+To obtain summable tails, multiply by an algebraic Jackson factor.
+Write \(u=\cos\theta\), \(y=\cos\alpha\), and, with \(K=3\) and
+\(\kappa\) fixed above, set \(k=\lfloor\kappa s/(2K)\rfloor\).
+Define
+\begin{align}
+ D_k(v)&=\frac{\sin((k+1/2)v)}{(2k+1)\sin(v/2)},\notag\\
+ L_{s,y}(u)&=D_k(\theta-\alpha)^{2K}
+             +D_k(\theta+\alpha)^{2K}. \label{eq:jackson}
+\end{align}
+This expression is even in \(\theta\), so it is an algebraic
+polynomial in \(u\) of degree at most \(2Kk\).
+Since \(y\in A\), it is bounded on \([-1,1]\) by \(1+o(1)\).
+By the choice of \(\kappa\), it is greater than \(9/10\) throughout
+the scaled neighborhood containing the peak interval of \(g\).
+Moreover,
+\begin{equation}\label{eq:jackson-tail}
+ |L_{s,y}(u)|\le
+ C(1+\kappa s|u-y|)^{-2K}+Cs^{-2K}.
+\end{equation}
+
+Put \(F_{s,y}=G_{s,y}L_{s,y}\).
+For \(u\in J_1\) with \(|c_s(u-y)|>2T\),
+\eqref{eq:bulk-kernel} gives
+\begin{equation}\label{eq:weighted-tail}
+ \begin{split}
+ |F_{s,y}(u)|
+ &\le C_\rho(1+|c_s(u-y)|)^{-1}
+       (1+\kappa|c_s(u-y)|)^{-2K}\\
+ &\hspace{2em}+O_\rho(s^{-2K}).
+ \end{split}
+\end{equation}
+For \(u\in[-b,b]\setminus J_0\),
+\eqref{eq:edge-kernel} and \eqref{eq:jackson-tail} give
+\begin{equation}\label{eq:weighted-edge}
+ |F_{s,y}(u)|=O_\rho(s^{-2K-5/6}).
+\end{equation}
+
+To treat \(b<|u|<1\), write
+\[
+ F_{s,y}(u)=e^{-sQ_s(u)}H_{s,y}(u),
+ \qquad
+ \deg H_{s,y}\le D_s:=m-1+2Kk<s.
+\]
+Let \(\sigma\) be the equilibrium measure of mass \(D_s/s\)
+for the field \(Q_s\) on \([-b,b]\).
+Its support remains in a fixed compact subinterval of \((-b,b)\).
+This follows from the continuity of the support endpoints in
+\cite[Lemma 2.4]{KSSV}, after shrinking the external-field
+neighborhood to cover masses near both \(t\) and \(t+\kappa\).
+Let \(F\) be the constant value of \(Q_s-V_\sigma\) on
+\(\supp\sigma\). Since \(\deg H_{s,y}\le D_s=s\sigma(\R)\), the
+maximum principle applied to \(\log|H_{s,y}|-sV_\sigma\) on the
+complement of the support, including infinity, yields
+\begin{equation}\label{eq:weighted-maximum}
+ |e^{-sQ_s(u)}H_{s,y}(u)|
+ \le \norm{e^{-sQ_s}H_{s,y}}_{\supp\sigma}
+ e^{-s(Q_s(u)-V_\sigma(u)-F)}.
+\end{equation}
+For \(u\in\supp\sigma\cap J_0\), the points
+\(y+v/c_s\), \(|v|\le T\), lie in \(J_1\) for all large \(s\).
+Hence \eqref{eq:bulk-kernel}, the uniform \(L^1\)-bound on \(g\),
+and \(\norm{L_{s,y}}_\infty\le1+o(1)\) give
+\[
+ |F_{s,y}(u)|\le C_\rho.
+\]
+For \(u\in\supp\sigma\setminus J_0\), the same conclusion follows
+from \eqref{eq:edge-kernel}, since \(y+v/c_s\) stays within
+\(O(s^{-1})\) of \(A\). Consequently
+\begin{equation}\label{eq:support-bound}
+ \norm{e^{-sQ_s}H_{s,y}}_{\supp\sigma}
+ =\norm{F_{s,y}}_{\supp\sigma}\le C_\rho
+\end{equation}
+uniformly in the admissible box and in the allowed external field.
+
+Put \(D_s^*(u)=Q_s(u)-V_\sigma(u)-F\). The function \(Q_s\) is
+convex on \((-1,1)\), while \(V_\sigma''<0\) off \(\supp\sigma\).
+After shrinking the analytic neighborhood of \(Q\), there is
+\(c_0>0\) such that \(Q_s''\ge c_0\) on \([-b,b]\), and hence
+\[
+ (D_s^*)''=Q_s''-V_\sigma''\ge c_0
+ \qquad\text{off }\supp\sigma\text{ in }[-b,b].
+\]
+Let \(\alpha_s\) and \(\beta_s\) be the leftmost and rightmost points
+of \(\supp\sigma\). The support remains a fixed positive distance
+from \(\pm b\). Since \(D_s^*\ge0\) on \([-b,b]\) and \(D_s^*=0\) on the support,
+its outward one-sided derivative at \(\alpha_s\) and \(\beta_s\) is
+nonnegative. Integrating the preceding inequality from the support
+to \(\pm b\) gives, for some \(c>0\) independent of \(s\),
+\[
+ D_s^*(-b)\ge c,\qquad D_s^*(b)\ge c.
+\]
+Outside \([-b,b]\), strict convexity on the two complementary
+intervals shows that \(D_s^*\) continues to increase toward the
+endpoints. Therefore \eqref{eq:weighted-maximum} and
+\eqref{eq:support-bound} give
+\begin{equation}\label{eq:weighted-exterior}
+ |F_{s,y}(u)|=O_\rho(e^{-cs})
+ \qquad(b<|u|<1).
+\end{equation}
+
+Retain admissible boxes whose centers in the \(c_su\) coordinate
+are separated by at least the fixed distance \(D>2R\). By
+\eqref{eq:tail-choice}, the sum of the tails in
+\eqref{eq:weighted-tail} from all centers outside the \(R\)-window is
+less than \(1/10\).
+One residue class of the box indices retains at least
+\(c_{\rho,D}s\) admissible boxes.
+At any point there is at most one center within scaled distance \(R\).
+In this window use \eqref{eq:projection-approximation}.
+At nodes of the same box use \(|g|\le1\); outside the box use
+\eqref{eq:bernstein-tail}. The remaining terms are controlled by
+the absolutely summable tails
+\eqref{eq:weighted-tail}--\eqref{eq:weighted-exterior}.
+The \(O_\rho(s^{-2K})\) remainders remain \(o(1)\) after summing
+over all retained boxes. Thus
+\begin{equation}\label{eq:sum-node-bound}
+ \max_{z\in Y\cap I}\sum_j
+ \left|F_{s,y_j}\left(\frac{z-x_0}{h}\right)\right|\le2.
+\end{equation}
+
+On \((-1,1)\), the ratio \(W(u)/W(0)\) is positive, and hence
+\(e^{-sQ_s(u)}=W(u)/W(0)\).
+Each function
+\[
+ B_j(x)=F_{s,y_j}\left(\frac{x-x_0}{h}\right)
+\]
+therefore extends to a polynomial in the original coordinate \(x\),
+vanishes at \(Y\setminus I\), and has degree at most
+\begin{equation}\label{eq:degree-budget}
+ N-s+m-1+2Kk\le N-1.
+\end{equation}
+On its peak interval, \eqref{eq:projection-approximation} and the
+choice of \(\kappa\) give \(F_{s,y_j}\ge\frac9{10}(10H-\eta)\).
+The other retained centers contribute at most \(1/10+o(1)\) there.
+Thus the \(B_j\) satisfy the peak dominance and node bounds in
+Lemma~\ref{lem:signs}, on node-free intervals of length at least
+\(ch/s\) in the original coordinate. There are at least
+\(c_{\rho,D}s\) such intervals. Since \(d=o(s)\), that lemma
+supplies data for which every interpolant satisfies \(|p|>H\) on
+a fixed fraction of them, proving \eqref{eq:local-amplification}.
+\end{proof}
+
+\section{Intervals with small node density}\label{sec:sparse}
+
+\begin{proposition}[Low-density case]\label{prop:sparse}
+For each \(H>1\), there is \(c_H>0\) with the following property.
+Fix \(I\Subset(-1,1)\), and let \(I^\theta=\arccos I\subset(0,\pi)\).
+Suppose that
+\[
+ \frac{\max_{\theta\in\overline{I^\theta}}\sin\theta}
+      {\min_{\theta\in\overline{I^\theta}}\sin\theta}\le2.
+\]
+Let \(Y\subset[-1,1]\) be a sequence of sets with \(N=\#Y\to\infty\)
+satisfying
+\begin{equation}\label{eq:sparse-count}
+ \#(Y\cap I)\le\frac{N|I^\theta|}{2\pi},
+\end{equation}
+and let \(d\ge0\) be integers with \(d=o(N)\).
+For all sufficiently large \(N\), there are data \(v_y\in[-1,1]\)
+on \(Y\) such that every \(p\in\Pi_{N+d}\) interpolating them satisfies
+\begin{equation}\label{eq:sparse-amplification}
+ |\{x\in I:|p(x)|>H\}|\ge c_H|I|.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write \(x=\cos\theta\) and \(v=N\theta/\pi\).
+Choose \(\rho\) so that \(c'\log\rho>10H\), and then choose
+\(D>4\rho\) so that
+\begin{equation}\label{eq:sparse-tail-choice}
+ 2C\sum_{j=1}^{\infty}(jD-2\rho)^{-3}<\frac1{10}.
+\end{equation}
+Partition the corresponding \(v\)-interval into boxes of length
+\(2\rho\), discarding the incomplete boxes at the two ends. Let \(M\)
+be the number of complete boxes and \(B_{\rm bad}\) the number
+containing at least \(2\rho+2\) nodes. The \(v\)-interval has length
+\(L=N|I^\theta|/\pi\), so \eqref{eq:sparse-count} gives
+\[
+ B_{\rm bad}(2\rho+2)\le \frac L2,
+ \qquad L<2\rho(M+2).
+\]
+Thus
+\[
+ B_{\rm bad}<\frac{\rho(M+2)}{2\rho+2}\le\frac M2+1.
+\]
+Hence at least \(M/2-1\) complete boxes contain at most \(2\rho+1\)
+nodes; in particular, this is at least \(M/3\) once \(M\ge6\). Retain such boxes with a fixed separation \(D\),
+and apply Lemma~\ref{lem:bernstein} at their centers \(a_j\).
+For the resulting functions \(g_j\), define
+\begin{equation}\label{eq:periodization}
+ \Phi_{N,j}(\theta)=
+ \sum_{\ell\in\Z}
+ \left[
+ g_j\left(\frac{N\theta}{\pi}-a_j+2N\ell\right)
+ +g_j\left(-\frac{N\theta}{\pi}-a_j+2N\ell\right)
+ \right].
+\end{equation}
+The series converges uniformly by \eqref{eq:bernstein-tail}.
+Its Fourier coefficients vanish at all frequencies \(k\) for which
+\[
+ \frac{\pi|k|}{N}>\pi-4\gamma,
+\]
+by the Paley--Wiener theorem. It is therefore an even real
+trigonometric polynomial of degree less than \(N\), and hence an
+algebraic polynomial of degree less than \(N\) in \(x=\cos\theta\).
+
+Because \(I^\theta\) stays away from \(0\) and \(\pi\), the reflected
+centers stay a fixed angular distance from \([0,\pi]\), modulo
+\(2\pi\). Their contribution, and that of every nonzero period of
+the unreflected term, is \(O(N^{-3})\) uniformly on \([0,\pi]\), by
+\eqref{eq:bernstein-tail}. Summing these errors over \(O(N)\)
+retained boxes gives \(o(1)\).
+
+By \eqref{eq:bernstein-tail} and
+\eqref{eq:sparse-tail-choice}, the sum of the principal tails from all
+other retained boxes is less than \(1/10\). For each
+retained box let
+\[
+ B_{N,j}(x)=\Phi_{N,j}(\arccos x).
+\]
+If a node \(z=\cos\theta\) lies in the \(j\)-th retained box, the
+principal term of \(B_{N,j}(z)\) has absolute value at most one by
+\eqref{eq:bernstein-norm}; if it lies outside that box, the same term
+is controlled by \eqref{eq:bernstein-tail}. The reflected and
+nonzero-period terms contribute only \(o(1)\) after summation.
+Therefore, for all sufficiently large \(N\),
+\begin{equation}\label{eq:sparse-node-bound}
+ \max_{z\in Y}\sum_j|B_{N,j}(z)|\le2.
+\end{equation}
+Each retained box contains a node-free interval of a fixed positive
+length in the \(v\)-coordinate where its principal function is at
+least \(c'\log\rho>10H\). The sum of all other terms is at most
+\(1/10+o(1)\), so these intervals satisfy the peak dominance
+condition of Lemma~\ref{lem:signs}.
+There are at least \(c_{\rho,D}N|I^\theta|\) such intervals, each
+of angular length at least \(c/N\). Since \(d=o(N)\), that lemma
+supplies bounded data forcing every interpolant to satisfy
+\(|p|>H\) on a fixed fraction of them. The assumed ratio bound for
+\(\sin\theta\) converts their total angular length into at least
+\(c_H|I|\) in the original coordinate, proving
+\eqref{eq:sparse-amplification}.
+\end{proof}
+
+\section{Local intervals for an arbitrary node array}
+\label{sec:arbitrary}
+
+Fix \(H>1\). Throughout this section, \(S\subset[-1,1]\) denotes
+an arbitrary fixed finite set, and \(Y_n=X_n\setminus S\).
+Pass to a subsequence, with indices still denoted by \(n\), such that
+\begin{equation}\label{eq:weak-limit}
+ \nu_n=\frac1n\sum_{x\in X_n}\delta_x
+ \ \Longrightarrow\ \nu.
+\end{equation}
+Only this subsequence will be used in the construction.
+Removing the nodes belonging to any fixed finite set does not
+alter the weak limit.
+Put
+\[
+ V=V_\nu,\qquad
+ m_0=\inf_{\supp\nu}V.
+\]
+The function \(V\) belongs to \(L^1[-1,1]\), and \(V\ge m_0\)
+throughout \([-1,1]\).
+To see the latter assertion off the support, note that \(V\) is
+concave on each bounded complementary interval and has the
+corresponding endpoint limits. On the two exterior intervals it
+is monotone toward the support.
+
+\subsection{Points above the minimum potential}
+\label{subsec:high-potential}
+
+Put \(P_n=P_{Y_n}\).
+For \(z\in\supp\nu\), choose \(z_n\in Y_n\) with \(z_n\to z\).
+Truncation of the logarithmic kernel gives
+\begin{equation}\label{eq:potential-limits}
+ \limsup_{n\to\infty}\frac1n\log|P_n'(z_n)|\le V(z),
+ \qquad
+ \frac1n\log|P_n|\longrightarrow V
+ \quad\text{in }L^1[-1,1].
+\end{equation}
+For the first assertion, truncate \(\log|x-y|\) from below at
+\(-A\). The contribution of the omitted diagonal term is \(A/n\);
+one first takes the weak limit and then lets \(A\to\infty\).
+For the second, use the continuity of
+\[
+ y\longmapsto\bigl(x\longmapsto\log|x-y|\bigr)
+\]
+as a map from \([-1,1]\) into \(L^1[-1,1]\).
+
+Suppose first that \(V(z)>-\infty\), and let
+\[
+ A_{z,\eta}=\{x:V(x)>V(z)+3\eta\},\qquad \eta>0.
+\]
+Outside a subset of \(A_{z,\eta}\) whose measure tends to zero,
+\eqref{eq:potential-limits} implies
+\begin{equation}\label{eq:cardinal-growth}
+ |\ell_n(x)|\ge e^{\eta n},
+ \qquad
+ \ell_n(x)=\frac{P_n(x)}{(x-z_n)P_n'(z_n)}.
+\end{equation}
+Specify the value one at \(z_n\), and zero at all other nodes of
+\(Y_n\). Every polynomial of degree at most \(n+r_n\) satisfying
+these data can be written as
+\begin{equation}\label{eq:cardinal-correction}
+ p=\ell_n T,\qquad T(z_n)=1,\qquad
+ \deg T\le r_n+\#S+1=o(n).
+\end{equation}
+If \(|p|\le H\) on a subset of \(A_{z,\eta}\) of fixed positive
+measure, \eqref{eq:cardinal-growth} and Remez's inequality
+\cite[p.~93, (3)--(4)]{Remez36} yield
+\[
+ |T(z_n)|\le He^{-\eta n}C^{\,r_n+\#S+1}<1
+\]
+for all sufficiently large \(n\), a contradiction.
+Here \(C\) depends only on the fixed measure lower bound.
+Thus the measure of the low set in \(A_{z,\eta}\) tends to zero
+uniformly over all the polynomials in \eqref{eq:cardinal-correction}.
+At every density point of \(A_{z,\eta}\), each sufficiently small
+fixed interval therefore admits data forcing large values on at
+least half its length.
+
+Choose countably many \(z\) for which \(V(z)\) decreases to \(m_0\),
+and take positive rational \(\eta\).
+The sets \(A_{z,\eta}\) cover \(\{V>m_0\}\) when the chosen source
+potentials are finite.
+If some \(V(z)=-\infty\), the first assertion of
+\eqref{eq:potential-limits} instead gives
+\[
+ \frac1n\log|P_n'(z_n)|\longrightarrow-\infty.
+\]
+On each set \(\{V\ge-A\}\), the same argument gives
+\eqref{eq:cardinal-growth} for any fixed positive exponential rate,
+outside a set of vanishing measure. Letting \(A\to\infty\) covers
+almost all of \([-1,1]\).
+In particular, if \(m_0=-\infty\), this subsection supplies local
+intervals at almost every point.
+
+\subsection{The minimum-potential set}
+\label{subsec:minimum}
+
+Suppose that \(m_0>-\infty\), and let
+\[
+ E=\{x:V(x)=m_0\}.
+\]
+By the differentiation theorem for measures, \(\nu\) has a finite
+Lebesgue density at almost every point.
+At points where this density is zero, all sufficiently small
+intervals satisfy the strict limiting form of
+\eqref{eq:sparse-count}. Fixing such an interval before taking
+\(n\to\infty\), and choosing endpoints that are not atoms of \(\nu\),
+allows Proposition~\ref{prop:sparse} to be applied.
+
+We isolate the local field arising at the remaining points.
+
+\begin{lemma}[Local outer field]\label{lem:local-outer-field}
+Let \(x_0\) be a density point of \(E\) and a Lebesgue point of the
+absolutely continuous part of \(\nu\), with finite positive density
+\(w\), and suppose that the singular part of \(\nu\) has density zero
+at \(x_0\). Put
+\[
+ I_h=(x_0-h,x_0+h),\qquad a_h=\nu(I_h),
+\]
+and let \(\mu_h\) be the image of \(\nu|_{I_h}/a_h\) under
+\(x\mapsto(x-x_0)/h\). Then, as \(h\downarrow0\),
+\[
+ a_h\sim2wh,\qquad \mu_h\Longrightarrow \frac{du}{2},
+\]
+and
+\begin{equation}\label{eq:inner-potential}
+ V_{\mu_h}\longrightarrow Q-1
+ \quad\text{in }L^1(-1,1).
+\end{equation}
+Define the normalized outer potential
+\[
+ A_h(u)=-\frac1{a_h}
+ \int_{\R\setminus I_h}\log|x_0+hu-y|\,d\nu(y).
+\]
+Then
+\begin{equation}\label{eq:real-field-limit}
+ A_h(u)-A_h(0)\longrightarrow Q(u)
+ \quad\text{locally uniformly on }(-1,1).
+\end{equation}
+Moreover, the functions \(A_h-A_h(0)\) admit analytic continuations
+\(\widetilde A_h\) to the strip
+\(\Omega_0=\{z\in\C:|\operatorname{Re}z|<1\}\), and
+\[
+ \widetilde A_h\longrightarrow Q
+\]
+locally uniformly there.
+\end{lemma}
+
+\begin{proof}
+The differentiation theorem gives \(a_h\sim2wh\) and
+\(\mu_h\Rightarrow du/2\). The continuity of
+\[
+ y\longmapsto\bigl(x\longmapsto\log|x-y|\bigr)
+\]
+from \([-1,1]\) into \(L^1[-1,1]\) gives
+\eqref{eq:inner-potential}, since the logarithmic potential of
+\(du/2\) is \(Q-1\).
+
+For \(u\) corresponding to \(E\cap I_h\), the equality \(V=m_0\)
+gives
+\begin{equation}\label{eq:outer-identity}
+ A_h(u)+\frac{m_0}{a_h}-\log h=V_{\mu_h}(u).
+\end{equation}
+The relative Lebesgue measure of this set in \((-1,1)\) tends
+to one, and the left side of \eqref{eq:outer-identity} is convex.
+Thus \eqref{eq:inner-potential} and \eqref{eq:outer-identity} imply
+convergence in measure to \(Q-1\). Finite convex functions that
+converge in measure to a continuous finite convex function converge
+uniformly on compact subintervals: convergence points on either side
+of a compact interval bound the secant slopes, giving equicontinuity.
+This proves \eqref{eq:real-field-limit}.
+
+Writing \(\xi=(y-x_0)/h\), one has \(|\xi|\ge1\) for
+\(y\notin I_h\). Define \(\widetilde A_h\) on \(\Omega_0\) by
+\(\widetilde A_h(0)=0\) and
+\[
+ \widetilde A_h'(z)
+ =-\frac{h}{a_h}\int_{\R\setminus I_h}
+   \frac{d\nu(y)}{x_0+hz-y}.
+\]
+For real \(u\in(-1,1)\), integration along the real segment gives
+\(\widetilde A_h(u)=A_h(u)-A_h(0)\), and
+\[
+ \widetilde A_h''(z)
+ =\frac1{a_h}\int_{\R\setminus I_h}\frac{d\nu(y)}{(z-\xi)^2}.
+\]
+Fix a compact subset \(K\) of \(\Omega_0\), and choose a compact
+interval \(K_1\Subset(-1,1)\) whose interior contains
+\(\operatorname{Re}K\cup\{0\}\).
+For sufficiently small fixed \(\ell>0\), the kernels
+\((u-\xi)^{-2}\) are uniformly comparable on
+\([u-\ell,u+\ell]\), uniformly for \(u\in K_1\). Hence
+\[
+ A_h''(u)
+ \le C_\ell\int_{u-\ell}^{u+\ell}A_h''(v)\,dv
+ =C_\ell\bigl(A_h'(u+\ell)-A_h'(u-\ell)\bigr).
+\]
+The local uniform convergence in \eqref{eq:real-field-limit} and
+convexity give uniform interior bounds for \(A_h'\), hence for
+\(A_h''\) on \(K_1\). Since
+\[
+ |z-\xi|^{-2}\le|\operatorname{Re}z-\xi|^{-2},
+\]
+\(\widetilde A_h''\) is uniformly bounded for
+\(\operatorname{Re}z\in K_1\). Integrating from zero and using the
+interior first-derivative bound gives local boundedness on \(\Omega_0\),
+hence a normal family. Every subsequential limit agrees
+with \(Q\) on the real interval by \eqref{eq:real-field-limit}, and
+therefore equals \(Q\) by the identity theorem.
+\end{proof}
+
+\begin{lemma}[Discrete outer-field approximation]\label{lem:discrete-field}
+Fix \(h>0\) such that the endpoints of \(I_h\) and the preimages of
+the endpoints of \(A\) are not atoms of \(\nu\), and put
+\(s_n=\#(Y_n\cap I_h)\).
+Then
+\begin{equation}\label{eq:discrete-counts}
+ \frac{s_n}{n}\longrightarrow a_h,
+ \qquad
+ \frac{\#\{y\in Y_n:(y-x_0)/h\in A\}}{s_n}
+ \longrightarrow\mu_h(A).
+\end{equation}
+Let \(\mathcal Q_n\) be the normalized analytic continuation of the
+discrete field \eqref{eq:actual-field}, with \(\mathcal Q_n(0)=0\).
+On every fixed complex neighborhood compactly contained in the domain
+of \(\widetilde A_h\),
+\[
+ \mathcal Q_n\longrightarrow\widetilde A_h
+\]
+locally uniformly. If \(N_n=\#Y_n\), then the degree bound \(n+r_n\)
+is \(N_n+d_n\), where
+\begin{equation}\label{eq:discrete-excess}
+ d_n=r_n+\#(X_n\cap S)=o(s_n).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The two limits in \eqref{eq:discrete-counts} follow from weak
+convergence and the choice of the interval endpoints. Moreover,
+\[
+ \mathcal Q_n'(z)
+ =-\frac{h}{s_n}\sum_{y\in Y_n\setminus I_h}
+   \frac1{x_0+hz-y}.
+\]
+On a fixed complex neighborhood as above, the summands are uniformly
+bounded and equicontinuous as functions of the outer node. Since
+\(n/s_n\to1/a_h\), weak convergence of the empirical measures gives
+\(\mathcal Q_n'\to\widetilde A_h'\) locally uniformly. Integrating
+from zero gives the asserted convergence of the fields. Finally,
+\(r_n=o(n)\) and \(s_n/n\to a_h>0\) give
+\eqref{eq:discrete-excess}.
+\end{proof}
+
+Now let \(x_0\) satisfy the hypotheses of Lemma~\ref{lem:local-outer-field};
+these conditions hold at almost every point of \(E\) where the density
+of \(\nu\) is positive. Since \(\overline\Omega_H\Subset\Omega_0\),
+Lemma~\ref{lem:local-outer-field} gives
+\(\norm{\widetilde A_h-Q}_{\Omega_H}\to0\). Choose
+\(h\) so small that this norm is less than \(\delta_H/2\), for the
+neighborhood \(\mathcal U_H\) in Proposition~\ref{prop:weighted}, and
+\[
+ \mu_h(A)<\frac14+\frac{\epsilon_H}{2}.
+\]
+This is possible because \(\mu_h\Rightarrow du/2\) and
+\((du/2)(A)=1/4\). We may also choose \(h\) so that the interval
+endpoints required in Lemma~\ref{lem:discrete-field} are not atoms of
+\(\nu\). Lemma~\ref{lem:discrete-field} gives
+\(\norm{\mathcal Q_n-\widetilde A_h}_{\Omega_H}<\delta_H/2\) for all
+sufficiently large \(n\), so \(\mathcal Q_n\in\mathcal U_H\).
+It also gives \eqref{eq:central-count} and an excess degree
+\(d_n=o(s_n)\). Therefore
+Proposition~\ref{prop:weighted} applies.
+
+\begin{proposition}[Local forcing for arbitrary arrays]\label{prop:local-forcing}
+For each \(H>1\), there is \(c_H>0\) such that every array
+\((X_n)\) and sequence \((r_n)\) as in Theorem~\ref{thm:main}
+admit a subsequence with the following property.
+For almost every \(x\in(-1,1)\), there are arbitrarily small
+intervals \(I\Subset(-1,1)\) containing \(x\) such that, for every
+fixed finite \(S\subset[-1,1]\), all sufficiently late rows of the
+subsequence admit data bounded by one on \(X_n\setminus S\) forcing
+\[
+ |\{y\in I:|p_n(y)|>H\}|\ge c_H|I|
+\]
+for every interpolant of degree at most \(n+r_n\).
+\end{proposition}
+
+\begin{proof}
+Use the weakly convergent subsequence in \eqref{eq:weak-limit}.
+Section~\ref{subsec:high-potential} gives the assertion on
+\(\{V>m_0\}\), with fraction \(1/2\). On \(\{V=m_0\}\),
+Section~\ref{subsec:minimum} applies Proposition~\ref{prop:sparse}
+where the density of \(\nu\) is zero, and
+Proposition~\ref{prop:weighted} where it is positive and finite.
+These cases exhaust almost every point. Take the minimum of their
+three constants. The intervals are selected from \(\nu\) and \(H\);
+for every fixed \(S\), the same limits apply to \(X_n\setminus S\),
+with excess degree \(r_n+\#(X_n\cap S)\).
+\end{proof}
+
+\section{A finite construction for common low sets}
+\label{sec:finite}
+
+\begin{proposition}\label{prop:finite}
+Fix \(H>1\), \(\delta>0\), and \(N_0\ge1\).
+There are finitely many indices \(n_1,\ldots,n_k\ge N_0\) and
+a function \(g\in C([-1,1];\R)\), with \(\norm{g}_\infty\le1\),
+such that every choice of polynomials
+\[
+ p_j\in\Pi_{n_j+r_{n_j}},\qquad p_j=g\text{ on }X_{n_j},
+\]
+satisfies
+\begin{equation}\label{eq:finite-low-set}
+ \left|\bigcap_{j=1}^k\{x:|p_j(x)|\le H\}\right|<\delta.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For any interval \(J\subset(-1,1)\), the intervals furnished by
+Proposition~\ref{prop:local-forcing} form a Vitali cover of almost all of \(J\).
+Choose finitely many disjoint such intervals whose total length is
+at least \(|J|/2\).
+For each interval, choose a sufficiently late new row of the fixed
+subsequence, assigning values only at nodes whose values have not
+yet been specified, applying Proposition~\ref{prop:local-forcing}
+with \(S\) equal to the finite set of previously assigned nodes.
+For all choices of the resulting interpolating polynomials, the
+union of their sets of values exceeding \(H\) occupies at least
+\begin{equation}\label{eq:interval-union}
+ c_*|J|,\qquad c_*=\frac{c_H}{2}>0,
+\end{equation}
+inside \(J\).
+
+Assume \(0<\delta\le2\), since larger \(\delta\) is immediate.
+Suppose that finitely many rows have already been chosen, with
+degree bounds \(d_1,\ldots,d_k\).
+For every admissible choice of their polynomials, the common low set
+\[
+ L=\bigcap_{j=1}^k\{x:|p_j(x)|\le H\}
+\]
+has at most \(2+2\sum_jd_j\) boundary points in \([-1,1]\).
+A constant polynomial equal to \(H\) or \(-H\) introduces no
+additional boundary points.
+Choose a fixed partition of \([-1,1]\) into sufficiently short
+intervals that the cells meeting these boundary points have total
+length less than \(\delta/4\).
+The same partition works for every admissible choice of the
+polynomials, since the boundary bound depends only on their degrees.
+
+In each cell, carry out the construction giving
+\eqref{eq:interval-union}, using new rows and assigning only new
+node values.
+If \(|L|\ge\delta\), the cells contained entirely in \(L\) have
+total length at least
+\[
+ |L|-\delta/4\ge3|L|/4.
+\]
+For the new common low set this gives
+\begin{equation}\label{eq:low-contraction}
+ |L_{\mathrm{new}}|
+ \le (1-3c_*/4)|L|
+ \qquad\text{whenever }|L|\ge\delta.
+\end{equation}
+Starting from \(L=[-1,1]\), perform a finite number \(q\) of batches,
+where
+\[
+ 2(1-3c_*/4)^q<\delta.
+\]
+At each batch the new partition is chosen using the degree bounds of
+the rows already selected.
+Equation~\eqref{eq:low-contraction} shows that the final common
+low set has measure less than \(\delta\), uniformly over all
+admissible polynomial choices.
+All rows may be chosen beyond \(N_0\).
+
+The assigned values define a function on a finite union of nodes,
+with absolute value at most one. Extend it by linear interpolation
+between consecutive nodes and by constants to the endpoints of
+\([-1,1]\). The resulting continuous function \(g\) has
+\(\norm{g}_\infty\le1\) and satisfies \eqref{eq:finite-low-set}.
+\end{proof}
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:baire}
+
+Work in the real Banach space \(C([-1,1];\R)\).
+For \(H>0\) and positive integers \(N,k\), let \(\mathcal O_{H,N,k}\)
+consist of the functions \(f\) for which there is a finite set
+\(S\subset\{N,N+1,\ldots\}\) such that every choice
+\[
+ p_n\in\Pi_{n+r_n},\qquad p_n=f\text{ on }X_n\quad(n\in S),
+\]
+satisfies
+\[
+ \left|\bigcap_{n\in S}\{x:|p_n(x)|\le H\}\right|<\frac1k.
+\]
+
+\begin{lemma}\label{lem:stability}
+If \(H>M>0\), then
+\(\mathcal O_{H,N,k}\subset\operatorname{int}\mathcal O_{M,N,k}\).
+\end{lemma}
+
+\begin{proof}
+Let \(f\in\mathcal O_{H,N,k}\), with finite set \(S\) as above.
+For each \(n\in S\), let \(L_n\) be the Lagrange interpolation
+operator on \(X_n\), and write \(\ell_{n,\xi}\) for its fundamental
+polynomials. Put
+\[
+ C=1+\sum_{n\in S}\sum_{\xi\in X_n}\norm{\ell_{n,\xi}}_\infty.
+\]
+If \(\norm{g-f}_\infty<(H-M)/C\) and \(p_n\) interpolates \(g\),
+then \(q_n=p_n-L_n(g-f)\) interpolates \(f\) with the same degree
+bound. Moreover,
+\[
+ \norm{L_n(g-f)}_\infty<H-M,
+ \qquad
+ \{|p_n|\le M\}\subset\{|q_n|\le H\}.
+\]
+The defining bound for \(f\) therefore gives the defining bound for
+\(g\) at height \(M\). Thus the ball of radius \((H-M)/C\) about
+\(f\) lies in \(\mathcal O_{M,N,k}\).
+\end{proof}
+
+\begin{lemma}\label{lem:dense-open}
+For every positive integer triple \(M,N,k\), the open set
+\(\operatorname{int}\mathcal O_{M,N,k}\) is dense.
+\end{lemma}
+
+\begin{proof}
+Let an open ball in \(C([-1,1];\R)\) be given.
+By polynomial approximation, it contains a polynomial \(h\).
+Choose \(\varepsilon>0\) so that \(h+\varepsilon g\) belongs to
+the ball whenever \(\norm{g}_\infty\le1\).
+Apply Proposition~\ref{prop:finite} with
+\[
+ H>\max\left\{1,\frac{M+1+\norm{h}_\infty}{\varepsilon}\right\},
+ \qquad \delta=\frac1k,
+\]
+requiring all selected indices to be at least \(N\) and large enough
+that \(n+r_n\ge\deg h\).
+Let \(g\) be the resulting function and set \(f=h+\varepsilon g\).
+For any admissible interpolant \(p_n\) of \(f\) on a selected row,
+\[
+ q_n=\frac{p_n-h}{\varepsilon}
+\]
+is an admissible interpolant of \(g\), and \(|p_n|\le M+1\)
+implies \(|q_n|<H\). Hence \(f\in\mathcal O_{M+1,N,k}\).
+Lemma~\ref{lem:stability} puts \(f\) in
+\(\operatorname{int}\mathcal O_{M,N,k}\), as required.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+By Lemma~\ref{lem:dense-open} and the Baire category theorem, choose
+\[
+ f\in\bigcap_{M,N,k\ge1}\operatorname{int}\mathcal O_{M,N,k}.
+\]
+Fix any admissible interpolation sequence \((p_n)\).
+For every \(M,N,k\), the common tail low set
+\[
+ E_{M,N}=\bigcap_{n\ge N}\{x:|p_n(x)|\le M\}
+\]
+is contained in the finite common low set supplied by
+\(f\in\mathcal O_{M,N,k}\). Thus \(|E_{M,N}|<1/k\) for every
+\(k\), and \(|E_{M,N}|=0\).
+Outside the null set \(\bigcup_{M,N\ge1}E_{M,N}\), every tail
+of \((|p_n(x)|)\) exceeds every positive integer threshold.
+This proves \eqref{eq:divergence}.
+\end{proof}
+
+\section*{Code availability}
+
+A partial Lean~4 formalization is available
+in the accompanying archive
+\texttt{erdos-1152-lean.zip}.
+It covers the sign-change bound in Lemma~\ref{lem:signs}, the scalar
+calculations of Lemma~\ref{lem:equilibrium}, the deduction from
+\eqref{eq:cardinal-growth} using Remez's inequality, and the finite
+construction and Baire category argument in
+Sections~\ref{sec:finite}--\ref{sec:baire}.
+Remez's inequality and the remaining analytic estimates are hypotheses.
+
+\section*{Use of generative AI}
+
+The author used GPT-5.6 and GPT-6 Astra in developing the arguments
+involving polynomial corrections, local external fields, weighted kernels
+and finite interpolation, and OpenAI Codex (GPT-6) for the Baire category
+argument and the Lean formalization. The author checked the arguments and
+their use of the cited results and is responsible for the content.
+
+\begin{thebibliography}{9}
+
+\bibitem{EV80}
+P.~Erd\H{o}s and P.~V\'ertesi,
+On the almost everywhere divergence of Lagrange interpolatory polynomials
+for arbitrary system of nodes,
+\emph{Acta Math. Acad. Sci. Hungar.} \textbf{36} (1980), 71--89.
+\url{https://www.renyi.hu/~p_erdos/1981-03.pdf}.
+
+\bibitem{EV81}
+P.~Erd\H{o}s and P.~V\'ertesi,
+Correction of some misprints in our paper ``On the almost everywhere
+divergence of Lagrange interpolatory polynomials for arbitrary system of
+nodes'',
+\emph{Acta Math. Acad. Sci. Hungar.} \textbf{38} (1981), 263.
+
+\bibitem{EKS89}
+P.~Erd\H{o}s, A.~Kro\'o, and J.~Szabados,
+On convergent interpolatory polynomials,
+\emph{J. Approx. Theory} \textbf{58} (1989), 232--241.
+\url{https://www.renyi.hu/~p_erdos/1989-16.pdf}.
+
+\bibitem{Favorite99}
+B.~Bollob\'as et al. (collectors),
+\emph{Some of Paul's Favorite Problems},
+booklet circulated at the conference \emph{Paul Erd\H{o}s and His Mathematics},
+Budapest, July 1999, Problem~2.42.
+\url{https://web.math.pmf.unizg.hr/~vjekovac/EP/Some_of_Pauls_favorite_problems.pdf}.
+
+\bibitem{Erdos1152}
+T.~F. Bloom,
+\emph{Erd\H{o}s Problem \#1152},
+\url{https://www.erdosproblems.com/1152}.
+Accessed 4 September 2026.
+
+\bibitem{SV90}
+J.~Szabados and P.~V\'ertesi,
+\emph{Interpolation of Functions},
+World Scientific, Singapore, 1990.
+
+\bibitem{Remez36}
+E.~Remes,
+Sur une propri\'et\'e extr\'emale des polynomes de Tchebychef,
+\emph{Comm. Inst. Sci. Math. M\'ec. Univ. Kharkoff Soc. Math. Kharkoff}
+(4) \textbf{13} (1936), no.~1, 93--95.
+\url{https://history-of-approximation-theory.com/fpapers/remezppr.pdf}.
+
+\bibitem{KSSV}
+T.~Kriecherbauer, K.~Schubert, K.~Sch\"uler, and M.~Venker,
+Global asymptotics for the Christoffel--Darboux kernel of random
+matrix theory,
+\emph{Markov Processes and Related Fields} \textbf{21} (2015),
+639--694.
+\href{https://arxiv.org/abs/1401.6772}{arXiv:1401.6772}.
+
+\bibitem{OU}
+A.~Olevskii and A.~Ulanovskii,
+\href{https://doi.org/10.1134/S0081543818080151}
+{On irregular sampling and interpolation in Bernstein spaces},
+\emph{Proceedings of the Steklov Institute of Mathematics}
+\textbf{303} (2018), 178--192.
+
+\end{thebibliography}
+
+\end{document}

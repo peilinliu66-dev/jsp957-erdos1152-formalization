@@ -1,0 +1,370 @@
+theorem Erdos1152.V5.ae_minimum_small_scale_field : ∀ (μ : MeasureTheory.ProbabilityMeasure.{0} ↑Erdos1152.Segment),
+  ∀ᵐ (x : ℝ) ∂Erdos1152.V4.baseMeasure,
+    x ∉ Erdos1152.V4.highPotentialRegion μ →
+      ∀ (b : ℝ),
+        LT.lt.{0} 0 b →
+          LT.lt.{0} b 1 →
+            ∀ (ε : ℝ),
+              GT.gt.{0} ε 0 →
+                ∀ᶠ (h : ℝ) in nhdsWithin.{0} 0 (Set.Ioi.{0} 0),
+                  LT.lt.{0} 0 (Erdos1152.V5.localMass μ x h) ∧
+                    ∀ (j : Fin 3) (u : ℝ),
+                      LE.le.{0} (abs.{0} u) b →
+                        LT.lt.{0}
+                          (abs.{0}
+                            (HSub.hSub.{0, 0, 0} (Erdos1152.V4.limitFieldJet μ j x h u) (Erdos1152.V5.modelJet j u)))
+                          ε :=
+⋯
+'Erdos1152.V5.ae_minimum_small_scale_field' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.ae_minimum_choose_field_scale : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    ∀ (ρ : ℕ),
+      LT.lt.{0} 0 ρ →
+        ∀ (b δ : ℝ),
+          LT.lt.{0} 0 b →
+            LT.lt.{0} b 1 →
+              LT.lt.{0} 0 δ →
+                ∀ᵐ (x :
+                  ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} (-1) 1),
+                  x ∉ Erdos1152.V4.canonicalHighRegion X →
+                    ∀ (ε : ℝ),
+                      GT.gt.{0} ε 0 →
+                        ∃ h,
+                          LT.lt.{0} 0 h ∧
+                            LE.le.{0} h ε ∧
+                              LT.lt.{0} (-1) (HSub.hSub.{0, 0, 0} x h) ∧
+                                LT.lt.{0} (HAdd.hAdd.{0, 0, 0} x h) 1 ∧
+                                  LT.lt.{0} 0 (Erdos1152.V5.localMass (Erdos1152.V4.canonicalMeasure X) x h) ∧
+                                    ∀ (S : Finset.{0} ↑Erdos1152.Segment),
+                                      (∀ᶠ (k : ℕ) in Filter.atTop.{0},
+                                          LT.lt.{0} 0
+                                              (Finset.card.{0}
+                                                (Erdos1152.V4.insideNodes
+                                                  (Erdos1152.unassignedNodes X S (Erdos1152.V4.canonicalRows X k)) x
+                                                  h)) ∧
+                                            LE.le.{0}
+                                                (↑(Finset.card.{0}
+                                                    (Erdos1152.V4.insideNodes
+                                                      (Erdos1152.unassignedNodes X S (Erdos1152.V4.canonicalRows X k)) x
+                                                      (HDiv.hDiv.{0, 0, 0} h 4))))
+                                                (HMul.hMul.{0, 0, 0}
+                                                  (HAdd.hAdd.{0, 0, 0} (1 / 4)
+                                                    (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 16 ↑ρ)))
+                                                  ↑(Finset.card.{0}
+                                                      (Erdos1152.V4.insideNodes
+                                                        (Erdos1152.unassignedNodes X S (Erdos1152.V4.canonicalRows X k))
+                                                        x h))) ∧
+                                              ∀ (j : Fin 3) (u : ℝ),
+                                                Membership.mem.{0, 0} (Set.Icc.{0} (Neg.neg.{0} b) b) u →
+                                                  LT.lt.{0}
+                                                    (abs.{0}
+                                                      (HSub.hSub.{0, 0, 0}
+                                                        (Erdos1152.V4.finiteFieldJet j
+                                                          (Erdos1152.unassignedNodes X S
+                                                            (Erdos1152.V4.canonicalRows X k))
+                                                          x h u)
+                                                        (Erdos1152.V5.modelJet j u)))
+                                                    δ) ∧
+                                        Filter.Tendsto.{0, 0}
+                                            (fun k =>
+                                              Finset.card.{0}
+                                                (Erdos1152.V4.insideNodes
+                                                  (Erdos1152.unassignedNodes X S (Erdos1152.V4.canonicalRows X k)) x h))
+                                            Filter.atTop.{0} Filter.atTop.{0} ∧
+                                          Filter.Tendsto.{0, 0}
+                                            (fun k =>
+                                              HDiv.hDiv.{0, 0, 0}
+                                                (HAdd.hAdd.{0, 0, 0} ↑(r (Erdos1152.V4.canonicalRows X k))
+                                                  ↑(Finset.card.{0} S))
+                                                ↑(Finset.card.{0}
+                                                    (Erdos1152.V4.insideNodes
+                                                      (Erdos1152.unassignedNodes X S (Erdos1152.V4.canonicalRows X k)) x
+                                                      h)))
+                                            Filter.atTop.{0} (nhds.{0} 0) :=
+⋯
+'Erdos1152.V5.ae_minimum_choose_field_scale' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.local_bernstein_decay_exists : ∀ (B : ℝ),
+  LT.lt.{0} 1 B →
+    ∃ ρ σ M ℓ C,
+      LT.lt.{0} 0 ρ ∧
+        LT.lt.{0} 0 σ ∧
+          LT.lt.{0} σ Real.pi ∧
+            LT.lt.{0} 0 M ∧
+              LT.lt.{0} 0 ℓ ∧
+                LT.lt.{0} 0 C ∧
+                  ∀ (Λ : Finset.{0} ℝ),
+                    (∀ (x : ℝ), Membership.mem.{0, 0} Λ x → Membership.mem.{0, 0} (Set.Icc.{0} (Neg.neg.{0} ↑ρ) ↑ρ) x) →
+                      LE.le.{0} (Finset.card.{0} Λ) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ρ) 1) →
+                        ∃ g a b,
+                          Differentiable.{0, 0, 0} ℂ g ∧
+                            (∀ (x : ℝ), Eq.{1} (g ↑x).im 0) ∧
+                              (∀ (x : ℝ), LE.le.{0} (Norm.norm.{0} (g ↑x)) M) ∧
+                                (∀ (x : ℝ), Membership.mem.{0, 0} Λ x → LE.le.{0} (Norm.norm.{0} (g ↑x)) 1) ∧
+                                  (∀ (x : ℝ), LE.le.{0} (↑ρ) (abs.{0} x) → LE.le.{0} (Norm.norm.{0} (g ↑x)) 1) ∧
+                                    LT.lt.{0} a b ∧
+                                      Eq.{1} (HSub.hSub.{0, 0, 0} b a) ℓ ∧
+                                        Set.Icc.{0} a b ⊆ Set.Icc.{0} (Neg.neg.{0} ↑ρ) ↑ρ ∧
+                                          (∀ (x : ℝ),
+                                              Membership.mem.{0, 0} (Set.Icc.{0} a b) x → LE.le.{0} B (g ↑x).re) ∧
+                                            ∀ (z : ℂ),
+                                              LE.le.{0} (Norm.norm.{0} (g z))
+                                                (HDiv.hDiv.{0, 0, 0}
+                                                  (HMul.hMul.{0, 0, 0} C
+                                                    (Real.exp (HMul.hMul.{0, 0, 0} σ (abs.{0} z.im))))
+                                                  (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} z)) 6)) :=
+⋯
+'Erdos1152.V5.local_bernstein_decay_exists' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.hasSum_shannon : ∀ (g : ℂ → ℂ),
+  Differentiable.{0, 0, 0} ℂ g →
+    ∀ (C σ t θ : ℝ),
+      LE.le.{0} 0 C →
+        LT.lt.{0} 0 t →
+          LE.le.{0} t 1 →
+            LE.le.{0} (abs.{0} θ) (1 / 2) →
+              LT.lt.{0} σ (HMul.hMul.{0, 0, 0} Real.pi t) →
+                (∀ (z : ℂ),
+                    LE.le.{0} (Norm.norm.{0} (g z))
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} C (Real.exp (HMul.hMul.{0, 0, 0} σ (abs.{0} z.im))))
+                        (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} z)) 6))) →
+                  ∀ (ξ : ℝ),
+                    HasSum.{0, 0}
+                      (fun j =>
+                        HMul.hMul.{0, 0, 0} (g ↑(Erdos1152.V5.samplePoint t θ j))
+                          ↑(Erdos1152.V5.cardinalSinc
+                              (HMul.hMul.{0, 0, 0} t (HSub.hSub.{0, 0, 0} ξ (Erdos1152.V5.samplePoint t θ j)))))
+                      (g ↑ξ) :=
+⋯
+'Erdos1152.V5.hasSum_shannon' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.hasSum_alternating_moment : ∀ (g : ℂ → ℂ),
+  Differentiable.{0, 0, 0} ℂ g →
+    ∀ (C σ t θ : ℝ),
+      LE.le.{0} 0 C →
+        LT.lt.{0} 0 t →
+          LE.le.{0} t 1 →
+            LE.le.{0} (abs.{0} θ) (1 / 2) →
+              LT.lt.{0} σ (HMul.hMul.{0, 0, 0} Real.pi t) →
+                (∀ (z : ℂ),
+                    LE.le.{0} (Norm.norm.{0} (g z))
+                      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} C (Real.exp (HMul.hMul.{0, 0, 0} σ (abs.{0} z.im))))
+                        (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} z)) 6))) →
+                  ∀ (d : ℕ),
+                    LE.le.{0} d 1 →
+                      HasSum.{0, 0}
+                        (fun j =>
+                          HMul.hMul.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) j)
+                              (HPow.hPow.{0, 0, 0} (↑(Erdos1152.V5.samplePoint t θ j)) d))
+                            (g ↑(Erdos1152.V5.samplePoint t θ j)))
+                        0 :=
+⋯
+'Erdos1152.V5.hasSum_alternating_moment' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.uniform_corrected_sampling : ∀ (C σ t₀ ε : ℝ),
+  LT.lt.{0} 0 C →
+    LT.lt.{0} 0 t₀ →
+      LE.le.{0} t₀ 1 →
+        LT.lt.{0} σ (HMul.hMul.{0, 0, 0} Real.pi t₀) →
+          LT.lt.{0} 0 ε →
+            ∃ N,
+              LE.le.{0} 1 N ∧
+                ∃ T K,
+                  LT.lt.{0} 0 T ∧
+                    LT.lt.{0} 0 K ∧
+                      ∀ (t θ : ℝ),
+                        LE.le.{0} t₀ t →
+                          LE.le.{0} t 1 →
+                            LE.le.{0} (abs.{0} θ) (1 / 2) →
+                              ∀ (g : ℂ → ℂ),
+                                Differentiable.{0, 0, 0} ℂ g →
+                                  (∀ (x : ℝ), Eq.{1} (g ↑x).im 0) →
+                                    (∀ (z : ℂ),
+                                        LE.le.{0} (Norm.norm.{0} (g z))
+                                          (HDiv.hDiv.{0, 0, 0}
+                                            (HMul.hMul.{0, 0, 0} C (Real.exp (HMul.hMul.{0, 0, 0} σ (abs.{0} z.im))))
+                                            (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} z)) 6))) →
+                                      ∃ c,
+                                        (∀ (j : ℤ),
+                                            Membership.mem.{0, 0} (Erdos1152.V5.symmetricIndices N) j →
+                                              LE.le.{0} (abs.{0} (Erdos1152.V5.samplePoint t θ j)) T) ∧
+                                          Eq.{1}
+                                              (∑ j ∈ Erdos1152.V5.symmetricIndices N,
+                                                HMul.hMul.{0, 0, 0} (Erdos1152.V5.realSign j) (c j))
+                                              0 ∧
+                                            Eq.{1}
+                                                (∑ j ∈ Erdos1152.V5.symmetricIndices N,
+                                                  HMul.hMul.{0, 0, 0}
+                                                    (HMul.hMul.{0, 0, 0} (Erdos1152.V5.realSign j)
+                                                      (Erdos1152.V5.samplePoint t θ j))
+                                                    (c j))
+                                                0 ∧
+                                              (∀ (ξ : ℝ),
+                                                  LE.le.{0}
+                                                    (abs.{0}
+                                                      (HSub.hSub.{0, 0, 0} (Erdos1152.V5.finiteSincSum t θ N c ξ)
+                                                        (g ↑ξ).re))
+                                                    ε) ∧
+                                                ∀ (ξ : ℝ),
+                                                  LE.le.{0} (HMul.hMul.{0, 0, 0} 2 T) (abs.{0} ξ) →
+                                                    LE.le.{0} (abs.{0} (Erdos1152.V5.finiteSincSum t θ N c ξ))
+                                                      (HDiv.hDiv.{0, 0, 0} K (HPow.hPow.{0, 0, 0} (abs.{0} ξ) 3)) :=
+⋯
+'Erdos1152.V5.uniform_corrected_sampling' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.meshKernel_exact : ∀ (m j : ℕ),
+  LT.lt.{0} 0 m →
+    LT.lt.{0} j m →
+      ∀ (u : ℝ),
+        Membership.mem.{0, 0} (Set.Icc.{0} (-1) 1) u →
+          Eq.{1}
+            (HMul.hMul.{0, 0, 0}
+              (Real.exp
+                (HMul.hMul.{0, 0, 0} (Neg.neg.{0} ↑m)
+                  (HSub.hSub.{0, 0, 0} (Erdos1152.externalField u)
+                    (Erdos1152.externalField (Erdos1152.V5.meshNode m j)))))
+              (Polynomial.eval.{0} u (Erdos1152.V5.meshBasis m j)))
+            (HDiv.hDiv.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0}
+                (Erdos1152.V5.cardinalSinc
+                  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (↑m) (HSub.hSub.{0, 0, 0} u (Erdos1152.V5.meshNode m j)))
+                    2))
+                (Erdos1152.V5.meshAmplitude m u))
+              (Erdos1152.V5.meshAmplitude m (Erdos1152.V5.meshNode m j))) :=
+⋯
+'Erdos1152.V5.meshKernel_exact' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.local_weighted_peak_exists : ∀ (B : ℝ),
+  LT.lt.{0} 1 B →
+    ∃ ρ b δ ℓ T K s₀,
+      LT.lt.{0} 0 ρ ∧
+        LT.lt.{0} 0 b ∧
+          LT.lt.{0} b 1 ∧
+            LT.lt.{0} 0 δ ∧
+              LT.lt.{0} 0 ℓ ∧
+                LT.lt.{0} 0 T ∧
+                  LT.lt.{0} 0 K ∧
+                    ∀ (Y : Finset.{0} ℝ) (x h y : ℝ),
+                      LT.lt.{0} 0 h →
+                        LE.le.{0} (abs.{0} y) (1 / 4) →
+                          LE.le.{0} s₀ (Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)) →
+                            (∀ (j : Fin 3) (u : ℝ),
+                                Membership.mem.{0, 0} (Set.Icc.{0} (Neg.neg.{0} b) b) u →
+                                  LE.le.{0}
+                                    (abs.{0}
+                                      (HSub.hSub.{0, 0, 0} (Erdos1152.V4.finiteFieldJet j Y x h u)
+                                        (Erdos1152.V5.modelJet j u)))
+                                    δ) →
+                              LE.le.{0} (Finset.card.{0} (Erdos1152.V5.countingNodes Y x h y ρ))
+                                  (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ρ) 1) →
+                                ∃ F α β,
+                                  LT.lt.{0} (Polynomial.natDegree.{0} F) (Finset.card.{0} Y) ∧
+                                    (∀ (z : ℝ),
+                                        Membership.mem.{0, 0} Y z →
+                                          LE.le.{0} (abs.{0} (Polynomial.eval.{0} z F)) (3 / 2)) ∧
+                                      LT.lt.{0} α β ∧
+                                        Eq.{1} (HSub.hSub.{0, 0, 0} β α) ℓ ∧
+                                          Set.Icc.{0} α β ⊆ Set.Icc.{0} (Neg.neg.{0} ↑ρ) ↑ρ ∧
+                                            (∀ (ξ : ℝ),
+                                                Membership.mem.{0, 0} (Set.Icc.{0} α β) ξ →
+                                                  LE.le.{0} (HSub.hSub.{0, 0, 0} B 1)
+                                                    (Polynomial.eval.{0}
+                                                      (HAdd.hAdd.{0, 0, 0} x
+                                                        (HMul.hMul.{0, 0, 0} h
+                                                          (HAdd.hAdd.{0, 0, 0} y
+                                                            (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ξ)
+                                                              ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h))))))
+                                                      F)) ∧
+                                              (∀ (z : ℝ),
+                                                  Membership.mem.{0, 0}
+                                                      (Set.Ioo.{0} (HSub.hSub.{0, 0, 0} x h) (HAdd.hAdd.{0, 0, 0} x h))
+                                                      z →
+                                                    LE.le.{0} (HMul.hMul.{0, 0, 0} 2 T)
+                                                        (abs.{0}
+                                                          (Erdos1152.V5.microCoordinate
+                                                            (Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)) x h y
+                                                            z)) →
+                                                      LE.le.{0} (abs.{0} (Polynomial.eval.{0} z F))
+                                                        (HDiv.hDiv.{0, 0, 0} K
+                                                          (HPow.hPow.{0, 0, 0}
+                                                            (abs.{0}
+                                                              (Erdos1152.V5.microCoordinate
+                                                                (Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)) x h y
+                                                                z))
+                                                            3))) ∧
+                                                ∀ (z : ℝ),
+                                                  Membership.mem.{0, 0} (Erdos1152.V4.outsideNodes Y x h) z →
+                                                    Eq.{1} (Polynomial.eval.{0} z F) 0 :=
+⋯
+'Erdos1152.V5.local_weighted_peak_exists' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.actual_weighted_family : ∀ (H : ℝ),
+  LT.lt.{0} 1 H →
+    ∃ ρ b δ a₀ ℓ₀ s₀,
+      LT.lt.{0} 0 ρ ∧
+        LT.lt.{0} 0 b ∧
+          LT.lt.{0} b 1 ∧
+            LT.lt.{0} 0 δ ∧
+              LT.lt.{0} 0 a₀ ∧
+                LT.lt.{0} 0 ℓ₀ ∧
+                  ∀ (Y : Finset.{0} ℝ) (x h : ℝ),
+                    LT.lt.{0} 0 h →
+                      LE.le.{0} s₀ (Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)) →
+                        LE.le.{0} (↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x (HDiv.hDiv.{0, 0, 0} h 4))))
+                            (HMul.hMul.{0, 0, 0}
+                              (HAdd.hAdd.{0, 0, 0} (1 / 4) (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 16 ↑ρ)))
+                              ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h))) →
+                          (∀ (j : Fin 3) (u : ℝ),
+                              Membership.mem.{0, 0} (Set.Icc.{0} (Neg.neg.{0} b) b) u →
+                                LE.le.{0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0} (Erdos1152.V4.finiteFieldJet j Y x h u)
+                                      (Erdos1152.V5.modelJet j u)))
+                                  δ) →
+                            ∃ K F α β,
+                              LT.lt.{0} 0 K ∧
+                                LE.le.{0} (HMul.hMul.{0, 0, 0} a₀ ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)))
+                                    ↑K ∧
+                                  LT.lt.{0} (Polynomial.natDegree.{0} F) (Finset.card.{0} Y) ∧
+                                    (∀ (z : ℝ),
+                                        Membership.mem.{0, 0} Y z → LE.le.{0} (abs.{0} (Polynomial.eval.{0} z F)) 1) ∧
+                                      (∀ (i : Fin K), LT.lt.{0} (α i) (β i)) ∧
+                                        (∀ (i j : Fin K), LT.lt.{0} i j → LE.le.{0} (β i) (α j)) ∧
+                                          (∀ (i : Fin K),
+                                              Set.Ioo.{0} (α i) (β i) ⊆
+                                                Set.Ioo.{0} (HSub.hSub.{0, 0, 0} x h) (HAdd.hAdd.{0, 0, 0} x h)) ∧
+                                            (∀ (i : Fin K),
+                                                Eq.{1} (HSub.hSub.{0, 0, 0} (β i) (α i))
+                                                  (HDiv.hDiv.{0, 0, 0}
+                                                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 h) ℓ₀)
+                                                    ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)))) ∧
+                                              (∀ (i : Fin K) (z : ℝ),
+                                                  Membership.mem.{0, 0} (Set.Ioo.{0} (α i) (β i)) z →
+                                                    Ne.{1} (Polynomial.eval.{0} z (Erdos1152.nodePolynomial Y)) 0) ∧
+                                                (∀ (i : Fin K) (z : ℝ),
+                                                    Membership.mem.{0, 0} (Set.Ioo.{0} (α i) (β i)) z →
+                                                      LT.lt.{0} H (abs.{0} (Polynomial.eval.{0} z F))) ∧
+                                                  ∀ (i : Fin K) (z : ℝ),
+                                                    Membership.mem.{0, 0} (Set.Ioo.{0} (α i) (β i)) z →
+                                                      LT.lt.{0} 0
+                                                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) ↑i)
+                                                          (HDiv.hDiv.{0, 0, 0} (Polynomial.eval.{0} z F)
+                                                            (Polynomial.eval.{0} z (Erdos1152.nodePolynomial Y)))) :=
+⋯
+'Erdos1152.V5.actual_weighted_family' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V4.cardinalGrowthCover_canonical : ∀ (X : Erdos1152.NodeArray),
+  Erdos1152.CardinalGrowthCover X (Erdos1152.V4.canonicalHighRegion X) :=
+⋯
+'Erdos1152.V4.cardinalGrowthCover_canonical' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.localAmplificationMinimal_canonical : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    Erdos1152.LocalAmplificationMinimal X r (Erdos1152.V4.canonicalHighRegion X) :=
+⋯
+'Erdos1152.V5.localAmplificationMinimal_canonical' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.ae_limsup_eq_top : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    ∃ f,
+      ∀ (p : ℕ → Polynomial.{0} ℝ),
+        (∀ (n : ℕ), X.Interpolates r f n (p n)) →
+          ∀ᵐ (x : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} Erdos1152.Segment,
+            Eq.{1} (Filter.limsup.{0, 0} (fun n => ↑(abs.{0} (Polynomial.eval.{0} x (p n)))) Filter.atTop.{0})
+              Top.top.{0} :=
+⋯
+'Erdos1152.V5.ae_limsup_eq_top' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

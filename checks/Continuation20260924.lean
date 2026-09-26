@@ -1,0 +1,6 @@
+import JSP957Continuation20260924
+#print axioms Erdos1152.Continuation20260924.two_moment_corrector
+#print axioms Erdos1152.Continuation20260924.reciprocal_second_order
+#print axioms Erdos1152.Continuation20260924.weighted_reciprocal_second_order
+#print axioms Erdos1152.Continuation20260924.finite_resolvent_of_two_zero_moments
+#print axioms Erdos1152.Continuation20260924.affine_slope_bound_of_two_probes

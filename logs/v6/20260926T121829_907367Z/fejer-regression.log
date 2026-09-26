@@ -1,0 +1,10 @@
+exists_normalized_fejer_annihilator : ∀ (L : ℕ) [inst : NeZero L] {κ : Type u_1} [inst_1 : Fintype κ],
+  Fintype.card κ < L →
+    ∀ (Ψ : CircleFunction →ₗ[ℂ] κ → ℂ),
+      ∃ a p,
+        a p = 1 ∧
+          (∀ (q : ZMod L), ‖a q‖ ≤ 1) ∧
+            Ψ (fejerGridCombination L a) = 0 ∧
+              (∀ (x : FourierCircle), ‖(fejerGridCombination L a) x‖ ≤ 1) ∧
+                (fejerGridCombination L a) (circleGrid L p) = 1
+'Erdos1152.V5.exists_normalized_fejer_annihilator' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,111 @@
+Erdos1152.V5.sum_fejerGridWeight : ∀ (L : ℕ) [inst : NeZero.{0} L] (x : Erdos1152.V5.FourierCircle),
+  Eq.{1} (∑ q, (Erdos1152.V5.fejerGridWeight L q) x) 1
+Erdos1152.V5.coefficient_fejerKernel : ∀ (L : ℕ) (n : ℤ),
+  Eq.{1} (Erdos1152.V5.coefficient (Erdos1152.V5.fejerKernel L) n)
+    (HDiv.hDiv.{0, 0, 0} ↑(HSub.hSub.{0, 0, 0} L n.natAbs) ↑L)
+Erdos1152.V5.corrected_moments : ∀ (g : ℂ → ℂ) (t θ : ℝ),
+  Ne.{1} t 0 →
+    ∀ (N : ℕ),
+      LE.le.{0} 1 N →
+        Eq.{1}
+            (∑ j ∈ Erdos1152.V5.symmetricIndices N,
+              HMul.hMul.{0, 0, 0} (Erdos1152.V5.realSign j) (Erdos1152.V5.correctedSample g t θ N j))
+            0 ∧
+          Eq.{1}
+            (∑ j ∈ Erdos1152.V5.symmetricIndices N,
+              HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Erdos1152.V5.realSign j) (Erdos1152.V5.samplePoint t θ j))
+                (Erdos1152.V5.correctedSample g t θ N j))
+            0
+Erdos1152.V5.cauchy_finite_simple_poles : ∀ (f h : ℂ → ℂ),
+  Differentiable.{0, 0, 0} ℂ f →
+    Differentiable.{0, 0, 0} ℂ h →
+      ∀ (s : Finset.{0} ℂ) (c ξ : ℂ) (R : ℝ),
+        LT.lt.{0} 0 R →
+          Membership.mem.{0, 0} (Metric.ball.{0} c R) ξ →
+            Ne.{1} (h ξ) 0 →
+              (∀ (a : ℂ), Membership.mem.{0, 0} s a → Membership.mem.{0, 0} (Metric.ball.{0} c R) a) →
+                (∀ (a : ℂ), Membership.mem.{0, 0} s a → Eq.{1} (h a) 0) →
+                  (∀ (a : ℂ), Membership.mem.{0, 0} s a → Ne.{1} (deriv.{0, 0} h a) 0) →
+                    (∀ (z : ℂ),
+                        Membership.mem.{0, 0} (Metric.closedBall.{0} c R) z →
+                          Eq.{1} (h z) 0 → Membership.mem.{0, 0} s z) →
+                      Eq.{1}
+                        (HMul.hMul.{0, 0, 0}
+                          (Inv.inv.{0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ↑Real.pi) Complex.I))
+                          (∮ (z : ℂ) in C(c, R),
+                            HDiv.hDiv.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (f z) (h z)) (HSub.hSub.{0, 0, 0} z ξ)))
+                        (HSub.hSub.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (f ξ) (h ξ))
+                          (∑ a ∈ s,
+                            HDiv.hDiv.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (f a) (deriv.{0, 0} h a))
+                              (HSub.hSub.{0, 0, 0} ξ a)))
+Erdos1152.V5.actual_weighted_family : ∀ (H : ℝ),
+  LT.lt.{0} 1 H →
+    ∃ ρ b δ a₀ ℓ₀ s₀,
+      LT.lt.{0} 0 ρ ∧
+        LT.lt.{0} 0 b ∧
+          LT.lt.{0} b 1 ∧
+            LT.lt.{0} 0 δ ∧
+              LT.lt.{0} 0 a₀ ∧
+                LT.lt.{0} 0 ℓ₀ ∧
+                  ∀ (Y : Finset.{0} ℝ) (x h : ℝ),
+                    LT.lt.{0} 0 h →
+                      LE.le.{0} s₀ (Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)) →
+                        LE.le.{0} (↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x (HDiv.hDiv.{0, 0, 0} h 4))))
+                            (HMul.hMul.{0, 0, 0}
+                              (HAdd.hAdd.{0, 0, 0} (1 / 4) (HDiv.hDiv.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 16 ↑ρ)))
+                              ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h))) →
+                          (∀ (j : Fin 3) (u : ℝ),
+                              Membership.mem.{0, 0} (Set.Icc.{0} (Neg.neg.{0} b) b) u →
+                                LE.le.{0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0} (Erdos1152.V4.finiteFieldJet j Y x h u)
+                                      (Erdos1152.V5.modelJet j u)))
+                                  δ) →
+                            ∃ K F α β,
+                              LT.lt.{0} 0 K ∧
+                                LE.le.{0} (HMul.hMul.{0, 0, 0} a₀ ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)))
+                                    ↑K ∧
+                                  LT.lt.{0} (Polynomial.natDegree.{0} F) (Finset.card.{0} Y) ∧
+                                    (∀ (z : ℝ),
+                                        Membership.mem.{0, 0} Y z → LE.le.{0} (abs.{0} (Polynomial.eval.{0} z F)) 1) ∧
+                                      (∀ (i : Fin K), LT.lt.{0} (α i) (β i)) ∧
+                                        (∀ (i j : Fin K), LT.lt.{0} i j → LE.le.{0} (β i) (α j)) ∧
+                                          (∀ (i : Fin K),
+                                              Set.Ioo.{0} (α i) (β i) ⊆
+                                                Set.Ioo.{0} (HSub.hSub.{0, 0, 0} x h) (HAdd.hAdd.{0, 0, 0} x h)) ∧
+                                            (∀ (i : Fin K),
+                                                Eq.{1} (HSub.hSub.{0, 0, 0} (β i) (α i))
+                                                  (HDiv.hDiv.{0, 0, 0}
+                                                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 h) ℓ₀)
+                                                    ↑(Finset.card.{0} (Erdos1152.V4.insideNodes Y x h)))) ∧
+                                              (∀ (i : Fin K) (z : ℝ),
+                                                  Membership.mem.{0, 0} (Set.Ioo.{0} (α i) (β i)) z →
+                                                    Ne.{1} (Polynomial.eval.{0} z (Erdos1152.nodePolynomial Y)) 0) ∧
+                                                (∀ (i : Fin K) (z : ℝ),
+                                                    Membership.mem.{0, 0} (Set.Ioo.{0} (α i) (β i)) z →
+                                                      LT.lt.{0} H (abs.{0} (Polynomial.eval.{0} z F))) ∧
+                                                  ∀ (i : Fin K) (z : ℝ),
+                                                    Membership.mem.{0, 0} (Set.Ioo.{0} (α i) (β i)) z →
+                                                      LT.lt.{0} 0
+                                                        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) ↑i)
+                                                          (HDiv.hDiv.{0, 0, 0} (Polynomial.eval.{0} z F)
+                                                            (Polynomial.eval.{0} z (Erdos1152.nodePolynomial Y))))
+'Erdos1152.V5.corrected_moments' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Erdos1152.V5.cauchy_finite_simple_poles' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Erdos1152.V5.actual_weighted_family' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Erdos1152.V5.localAmplificationMinimal_canonical : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    Erdos1152.LocalAmplificationMinimal X r (Erdos1152.V4.canonicalHighRegion X) :=
+⋯
+theorem Erdos1152.V5.ae_limsup_eq_top : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    ∃ f,
+      ∀ (p : ℕ → Polynomial.{0} ℝ),
+        (∀ (n : ℕ), X.Interpolates r f n (p n)) →
+          ∀ᵐ (x : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} Erdos1152.Segment,
+            Eq.{1} (Filter.limsup.{0, 0} (fun n => ↑(abs.{0} (Polynomial.eval.{0} x (p n)))) Filter.atTop.{0})
+              Top.top.{0} :=
+⋯
+'Erdos1152.V5.ae_limsup_eq_top' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

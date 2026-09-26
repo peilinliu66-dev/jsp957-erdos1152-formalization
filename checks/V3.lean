@@ -1,0 +1,13 @@
+import JSP957V3
+
+#check Erdos1152.V3.finite_cardinal_growth_with_error_bound
+#check Erdos1152.V3.high_multiplier_degree
+#check Erdos1152.V3.minimal_quotient_degree
+#check Erdos1152.V3.weak_convergence_uniform_truncated_log
+#check Erdos1152.V3.exists_empirical_weak_subsequence
+#check Erdos1152.V3.low_measure_of_alternating_polynomial
+#print axioms Erdos1152.V3.finite_cardinal_growth_with_error_bound
+#print axioms Erdos1152.V3.weak_convergence_uniform_kernel
+#print axioms Erdos1152.V3.low_measure_of_alternating_polynomial
+#check Erdos1152.ae_limsup_eq_top_of_localAmplification
+#check Erdos1152.ae_limsup_eq_top_of_cardinalGrowth_minimal

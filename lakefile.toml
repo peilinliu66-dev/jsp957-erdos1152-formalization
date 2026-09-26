@@ -1,0 +1,64 @@
+name = "erdos1152"
+version = "0.3.0"
+defaultTargets = ["Erdos1152"]
+testDriver = "Checks"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "db584cd6d46c92f209a44c0f1c829460d327499d"
+
+[[lean_lib]]
+name = "Erdos1152"
+
+[[lean_lib]]
+name = "Checks"
+srcDir = "checks"
+roots = ["Check", "Statement"]
+
+# Separate research target; original default target is unchanged.
+[[lean_lib]]
+name = "JSP957Research"
+roots = ["JSP957Research"]
+
+# Independent continuation target; original terminal and default targets unchanged.
+[[lean_lib]]
+name = "JSP957Continuation20260924"
+
+[[lean_lib]]
+name = "JSP957V3"
+roots = ["JSP957V3"]
+
+# V4 targets are explicit; both targets are built by scripts/build_v4.sh.
+[[lean_lib]]
+name = "JSP957V4High"
+roots = ["JSP957V4High"]
+
+[[lean_lib]]
+name = "JSP957V4"
+roots = ["JSP957V4"]
+
+# V5 explicit diagnostics and full candidate. Fixed dependencies are unchanged.
+[[lean_lib]]
+name = "JSP957V5Field"
+roots = ["JSP957V5Field"]
+
+[[lean_lib]]
+name = "JSP957V5Bernstein"
+roots = ["JSP957V5Bernstein"]
+
+[[lean_lib]]
+name = "JSP957V5Sampling"
+roots = ["JSP957V5Sampling"]
+
+[[lean_lib]]
+name = "JSP957V5Weighted"
+roots = ["JSP957V5Weighted"]
+
+[[lean_lib]]
+name = "JSP957V5"
+roots = ["JSP957V5"]
+
+[[lean_lib]]
+name = "JSP957Final"
+roots = ["JSP957Final"]

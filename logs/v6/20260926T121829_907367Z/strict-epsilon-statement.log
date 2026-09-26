@@ -1,0 +1,27 @@
+theorem Erdos1152.V5.ae_limsup_eq_top_strict_epsilon : ∀ (X : Erdos1152.NodeArray) (ε : ℕ → ℝ),
+  Filter.Tendsto.{0, 0} ε Filter.atTop.{0} (nhds.{0} 0) →
+    ∃ f,
+      ∀ (p : ℕ → Polynomial.{0} ℝ),
+        (∀ (n : ℕ),
+            LT.lt.{0} (WithBot.map.{0, 0} (fun d => ↑d) (Polynomial.degree.{0} (p n)))
+                ↑(HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑n) 1)
+                    (HAdd.hAdd.{0, 0, 0} 1 (ε (HAdd.hAdd.{0, 0, 0} n 1)))) ∧
+              ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)),
+                Eq.{1} (Polynomial.eval.{0} (↑(X.node n i)) (p n)) (f (X.node n i))) →
+          ∀ᵐ (x : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} Erdos1152.Segment,
+            Eq.{1} (Filter.limsup.{0, 0} (fun n => ↑(abs.{0} (Polynomial.eval.{0} x (p n)))) Filter.atTop.{0})
+              Top.top.{0} :=
+⋯
+Erdos1152.V5.ae_limsup_eq_top_strict_epsilon : ∀ (X : Erdos1152.NodeArray) (ε : ℕ → ℝ),
+  Filter.Tendsto.{0, 0} ε Filter.atTop.{0} (nhds.{0} 0) →
+    ∃ f,
+      ∀ (p : ℕ → Polynomial.{0} ℝ),
+        (∀ (n : ℕ),
+            LT.lt.{0} (WithBot.map.{0, 0} (fun d => ↑d) (Polynomial.degree.{0} (p n)))
+                ↑(HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (↑n) 1)
+                    (HAdd.hAdd.{0, 0, 0} 1 (ε (HAdd.hAdd.{0, 0, 0} n 1)))) ∧
+              ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)),
+                Eq.{1} (Polynomial.eval.{0} (↑(X.node n i)) (p n)) (f (X.node n i))) →
+          ∀ᵐ (x : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} Erdos1152.Segment,
+            Eq.{1} (Filter.limsup.{0, 0} (fun n => ↑(abs.{0} (Polynomial.eval.{0} x (p n)))) Filter.atTop.{0})
+              Top.top.{0}

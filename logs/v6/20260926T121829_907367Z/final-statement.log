@@ -1,0 +1,34 @@
+theorem Erdos1152.V5.ae_limsup_eq_top : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    ∃ f,
+      ∀ (p : ℕ → Polynomial.{0} ℝ),
+        (∀ (n : ℕ), X.Interpolates r f n (p n)) →
+          ∀ᵐ (x : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} Erdos1152.Segment,
+            Eq.{1} (Filter.limsup.{0, 0} (fun n => ↑(abs.{0} (Polynomial.eval.{0} x (p n)))) Filter.atTop.{0})
+              Top.top.{0} :=
+⋯
+Erdos1152.V5.ae_limsup_eq_top : ∀ (X : Erdos1152.NodeArray) (r : ℕ → ℕ),
+  Filter.Tendsto.{0, 0} (fun n => HDiv.hDiv.{0, 0, 0} (↑(r n)) (HAdd.hAdd.{0, 0, 0} (↑n) 1)) Filter.atTop.{0}
+      (nhds.{0} 0) →
+    ∃ f,
+      ∀ (p : ℕ → Polynomial.{0} ℝ),
+        (∀ (n : ℕ), X.Interpolates r f n (p n)) →
+          ∀ᵐ (x : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} Erdos1152.Segment,
+            Eq.{1} (Filter.limsup.{0, 0} (fun n => ↑(abs.{0} (Polynomial.eval.{0} x (p n)))) Filter.atTop.{0})
+              Top.top.{0}
+structure Erdos1152.NodeArray : Type
+number of parameters: 0
+fields:
+  Erdos1152.NodeArray.node : (n : ℕ) → Fin (HAdd.hAdd.{0, 0, 0} n 1) → ↑Erdos1152.Segment
+  Erdos1152.NodeArray.injective : ∀ (n : ℕ), Function.Injective.{1, 1} (self.node n)
+constructor:
+  Erdos1152.NodeArray.mk (node : (n : ℕ) → Fin (HAdd.hAdd.{0, 0, 0} n 1) → ↑Erdos1152.Segment)
+    (injective : ∀ (n : ℕ), Function.Injective.{1, 1} (node n)) : Erdos1152.NodeArray
+def Erdos1152.NodeArray.Interpolates : Erdos1152.NodeArray →
+  (ℕ → ℕ) → Erdos1152.ContinuousFunction → ℕ → Polynomial.{0} ℝ → Prop :=
+fun X r f n p =>
+  LE.le.{0} (Polynomial.natDegree.{0} p) (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} n 1) (r n)) ∧
+    ∀ (i : Fin (HAdd.hAdd.{0, 0, 0} n 1)), Eq.{1} (Polynomial.eval.{0} (↑(X.node n i)) p) (f (X.node n i))
+@[reducible] def Erdos1152.LocalAmplificationMinimal : Erdos1152.NodeArray → (ℕ → ℕ) → Set.{0} ℝ → Prop :=
+fun X r A => Erdos1152.LocalAmplificationOn X r (Compl.compl.{0} A)
