@@ -2,7 +2,7 @@
 
 **Verification status: FULL_FINAL_ELABORATED_STANDARD_AXIOMS.** `The complete seven-stage Lake build and all seven checks succeeded on the selected source bytes. Both full-type regression checks and exact-name transitive axiom audits passed. All nine dependency checkouts matched the locked revisions and were clean before and after the run; all driver-hashed source files remained unchanged. This is Lean verification by the build environment, not an independent mathematical review.`
 
-This document records the full expected statements and their mathematical correspondence. Source version: `412bf5f3bdff311fcd485459a394aadbcee8a103`; mathematical review: `NOT INDEPENDENTLY REVIEWED; submitted argument requires review`.
+This document records the full expected statements and their mathematical correspondence. Source version: `5f77404a2c8869efa1797a93862d5da170925977`; mathematical review: `NOT INDEPENDENTLY REVIEWED; submitted argument requires review`.
 
 ## Sources and identity
 
@@ -39,7 +39,7 @@ theorem Erdos1152.V5.ae_limsup_eq_top
         limsup (fun n => ((|(p n).eval x| : ℝ) : EReal)) atTop = ⊤
 ```
 
-This display expands namespace qualification for reading; the authoritative source is `Erdos1152/V5/Main.lean` at `412bf5f3bdff311fcd485459a394aadbcee8a103`. The theorem is defined and proved in `Erdos1152/V5/Main.lean`, imported by `JSP957Final.lean`. The proposed statement has not been approved by prize maintainers.
+This display expands namespace qualification for reading; the authoritative source is `Erdos1152/V5/Main.lean` at `5f77404a2c8869efa1797a93862d5da170925977`. The theorem is defined and proved in `Erdos1152/V5/Main.lean`, imported by `JSP957Final.lean`. The proposed statement has not been approved by prize maintainers.
 
 | Mathematical notion | Source definition / meaning |
 | --- | --- |

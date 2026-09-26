@@ -15,12 +15,12 @@ Run from the root containing `lean-toolchain`, `lakefile.toml`, and `lake-manife
 
 ## Fresh checkout
 
-After publication, clone the selected repository and check out the exact proof-source commit below. This commit is contained in the main branch; later commits add documentation and verification evidence without changing the checked proof inputs.
+Clone the public repository and check out the exact proof-source commit below. This commit is contained in the main branch; later commits add documentation and verification evidence without changing the checked proof inputs.
 
 ```sh
 git clone --single-branch --branch main https://github.com/peilinliu66-dev/jsp957-erdos1152-formalization jsp957-review
 cd jsp957-review
-git checkout --detach 412bf5f3bdff311fcd485459a394aadbcee8a103
+git checkout --detach 5f77404a2c8869efa1797a93862d5da170925977
 git rev-parse HEAD
 lake env lean --version
 python3 scripts/build_v6.py --cache
@@ -69,7 +69,7 @@ These fields must contain genuine output for the exact named declarations. The d
 
 | Item | Release value |
 | --- | --- |
-| Selected public commit | `412bf5f3bdff311fcd485459a394aadbcee8a103` |
+| Selected public commit | `5f77404a2c8869efa1797a93862d5da170925977` |
 | Verification time (UTC) | `2026-09-26T12:24:35.638381+00:00` |
 | Run-specific receipt | `logs/v6/20260926T121829_907367Z/BUILD_RESULT.json` |
 | Receipt SHA-256 | `899475250553c5acc4991fbc46477f544b8fcadaf60d7efe725b9b53c9bbaf99` |

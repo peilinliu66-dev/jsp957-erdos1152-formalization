@@ -664,5 +664,7 @@
     "unchanged": 18,
     "modified": 17,
     "missing": 0
-  }
+  },
+  "public_source_commit": "5f77404a2c8869efa1797a93862d5da170925977",
+  "public_mapping_note": "The local_source_commit is a historical local Git identifier. The published proof inputs are byte-identical, as recorded in PUBLICATION.json."
 }

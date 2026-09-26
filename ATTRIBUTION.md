@@ -24,13 +24,13 @@ The continuation develops a coarse Remez route, empirical weak-limit and logarit
 
 Further work includes Lean API and proof-script repairs, explicit import maintenance, movement of three pure-definition blocks into separate modules without changing their names or expressions, reproducible build/audit tooling, and the explicit strict-ε statement bridge. The successful release build refers to the selected proof-source commit and does not by itself identify a mathematical discoverer.
 
-The intended contribution account is [peilinliu66-dev](https://github.com/peilinliu66-dev). Public contribution evidence must identify that account's actual added work rather than claim ownership of retained upstream files:
+The submitting contribution account is [peilinliu66-dev](https://github.com/peilinliu66-dev). Public contribution evidence must identify that account's actual added work rather than claim ownership of retained upstream files:
 
 | Contribution evidence | Reference |
 | --- | --- |
 | Public source repository | `https://github.com/peilinliu66-dev/jsp957-erdos1152-formalization` |
-| Selected full source commit | `412bf5f3bdff311fcd485459a394aadbcee8a103` |
-| Attributable contribution history | `https://github.com/peilinliu66-dev/jsp957-erdos1152-formalization/commit/412bf5f3bdff311fcd485459a394aadbcee8a103` |
+| Selected full source commit | `5f77404a2c8869efa1797a93862d5da170925977` |
+| Attributable contribution history | `https://github.com/peilinliu66-dev/jsp957-erdos1152-formalization/commit/5f77404a2c8869efa1797a93862d5da170925977` |
 | Final file-level upstream/continuation comparison | `provenance/SOURCE_LINEAGE.json` |
 
 ## AI assistance and review

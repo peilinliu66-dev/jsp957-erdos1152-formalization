@@ -8,15 +8,15 @@ The evidence below records the complete canonical run, including both endpoints.
 
 | Release evidence | Selected value |
 | --- | --- |
-| Intended proof repository | `https://github.com/peilinliu66-dev/jsp957-erdos1152-formalization` |
+| Public proof repository | `https://github.com/peilinliu66-dev/jsp957-erdos1152-formalization` |
 | Source branch | `main` |
-| Full source commit | `412bf5f3bdff311fcd485459a394aadbcee8a103` |
+| Full source commit | `5f77404a2c8869efa1797a93862d5da170925977` |
 | Verification time (UTC) | `2026-09-26T12:24:35.638381+00:00` |
 | Complete build receipt | `logs/v6/20260926T121829_907367Z/BUILD_RESULT.json` |
 | SHA-256 of that receipt | `899475250553c5acc4991fbc46477f544b8fcadaf60d7efe725b9b53c9bbaf99` |
 | Mathematical review | `NOT INDEPENDENTLY REVIEWED; submitted argument requires review` |
 
-The intended contribution account is [peilinliu66-dev](https://github.com/peilinliu66-dev); its selected repository and commit are the release fields above.
+The submitting contribution account is [peilinliu66-dev](https://github.com/peilinliu66-dev); its selected repository and commit are the release fields above.
 
 ## Problem and scope
 
@@ -64,3 +64,7 @@ python3 scripts/build_v6.py
 For a new checkout requiring the pinned dependency cache, use `python3 scripts/build_v6.py --cache`. [REPRODUCE.md](REPRODUCE.md) gives setup, full build stages, explicit endpoint checks, actual-output fields, and the receipt requirements. A default `lake build` alone does not check the complete final target.
 
 Formal acceptance and mathematical review are separate: a successful Lean receipt must identify the exact checked source, and mathematical review must cover the complete argument and its correspondence to the original problem.
+
+## Public Git version mapping
+
+The public proof-source commit is `5f77404a2c8869efa1797a93862d5da170925977`, on `main`. It preserves the complete 212-file tree of the local release `7b6c12125f508e64a0a86d882f9051fec2b47409`. All 145 driver-hashed proof/configuration/check files match the successful canonical build byte-for-byte. Publication used GitHub-created commits after the user initialized the repository; local Git commit IDs were not imported. The old local IDs in historical export records or untouched raw logs are provenance, not public Git references. See [provenance/PUBLICATION.json](provenance/PUBLICATION.json) for the source mapping and hash evidence. This publication check did not rerun Lean or alter the original compiler receipt.
